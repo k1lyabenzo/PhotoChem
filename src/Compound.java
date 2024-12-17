@@ -13,17 +13,12 @@ public class Compound {
 
         String result = getReactionResult(firstProduct, secondProduct);
         if (result != null) {
-            if(result.contains("/")){
-                String[] products = result.split("/");
-                for(int i = 0; i != products.length; i++){
-                    System.out.println("Продукт " + (i+1) + ": " + products[i]);
-                }
-            } else {
-                System.out.println("Продукт: " + result);
+            String[] products = result.contains("/") ? result.split("/") : new String[]{result};
+            for (int i = 0; i < products.length; i++) {
+                System.out.println("Продукт " + (i + 1) + ": " + products[i]);
             }
         } else {
             System.out.println("Нет известной реакции между данными продуктами.");
-
         }
 
         scanner.close();
