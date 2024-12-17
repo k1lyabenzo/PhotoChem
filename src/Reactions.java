@@ -127,4 +127,8 @@ public class Reactions {
         {"N2", "Hf", "2N2+3Hf=Hf3N4"},//24
         {"N2", "Ti", "2N2+3Ti=Ti3N4/N2+2Ti=2TiN"}//25
     };
+    public static final String[][] reaction_compare_O = {
+
+
+    };
 }
