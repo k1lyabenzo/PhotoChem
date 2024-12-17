@@ -37,4 +37,3 @@ public class Compound {
         return null; // Если реакция не найдена
     }
 }
-//гошалох
