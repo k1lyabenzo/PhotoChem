@@ -129,6 +129,5 @@ public class Reactions {
     };
     public static final String[][] reaction_compare_O = {
 
-
     };
 }
