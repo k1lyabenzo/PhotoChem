@@ -1,54 +1,54 @@
 public class Reactions {
     public static final String[][] reaction_compare_H = {
-            {"H2", "Li", "H2+2Li=2LiH"},//1
-            {"H2", "Be", "H2+Be=BeH2"},//2
-            {"H2", "B", "3H2+2B=B2H6"},//3
-            {"H2", "C", "2H2+C=2HC2/2H2+C=CH4"},//4
-            {"H2", "N2", "3H2+N2=2NH3"},//5
-            {"H2", "O2", "2H2+O2=2H2O"},//6
-            {"H2", "F2", "H2+F2=2HF"},//7
-            {"H2", "Na", "H2+2Na=2NaH"},//8
-            {"H2", "Mg", "H2+Mg=MgH2/H2+2Mg=2MgH/H2+Mg=H2Mg/H2+4Mg=2Mg2H/H2+2Mg=Mg2H2/3H2+2Mg=2MgH3"},//9
-            {"H2", "Al", "3H2+2Al=2AlH3/H2+2Al=2AlH/H2+Al=AlH2"},//10
-            {"H2", "Si", "2H2+Si=SiH4"},//11
-            {"H2", "P", "3H2+P=2PH3/H2+2P=2HP"},//12
-            {"H2", "S", "H2+S=H2S"},//13
-            {"H2", "Cl2", "H2+Cl2=2HCl"},//14
-            {"H2", "K", "H2+2K=2KH/2H2+K=KH4"},//15
-            {"H2", "Ca", "H2+Ca=CaH2"},//16
-            {"H2", "Fe", "3H2+2Fe=2FeH3/H2+Fe=H2Fe/H2+2Fe=2FeH"},//17
-            {"H2", "Cu", "H2+4Cu=H2Cu"},//18
-            {"H2", "Zn", "H2+Zn=ZnH2/H2+2Zn=2ZnH/H2+2Zn=2HZn"},//19
-            {"H2", "Ga", "3H2+2Ga=Ga2H6/3H2+2Ga=2GaH3"},//20
-            {"H2", "Ge", "H2+Ge=GeH2/H2+4Ge=2Ge2H"},//21
-            {"H2", "As", "3H2+As=2AsH3"},//22
-            {"H2", "Se", "H2+Se=H2Se"},//23
-            {"H2", "Br2", "H2+Br2=2HBr"},//24
-            {"H2", "Rb", "H2+2Rb=2RbH"},//25
-            {"H2", "Sr", "H2+Sr=SrH2/H2+2Sr=2SrH"},//26
-            {"H2", "Nb", "5H2+2Nb=2NbH5"},//27
-            {"H2", "Ag", "H2+2Ag=2AgH"},//28
-            {"H2", "Sn", "H2+Sn=SnH2/2H2+Sn=SnH4"},//29
-            {"H2", "Te", "H2+Te=H2Te"},//30
-            {"H2", "I2", "H2+I2=2HI"},//31
-            {"H2", "Cs", "H2+2Cs=2CsH"},//32
-            {"H2", "Ba", "H2+Ba=BaH2/H2+4Ba=2Ba2H/H2+2Ba=2BaH"},//33
-            {"H2", "Pb", "H2+2Pb=2PbH"},//34
-            {"H2", "Fr", "H2+2Fr=2FrH"},//35
-            {"H2", "Ra", "H2+2Ra=2RaH/H2+Ra=RaH2"}//36
+        {"H2", "Li", "H2+2Li=2LiH"},//1
+        {"H2", "Be", "H2+Be=BeH2"},//2
+        {"H2", "B", "3H2+2B=B2H6"},//3
+        {"H2", "C", "2H2+C=2HC2/2H2+C=CH4"},//4
+        {"H2", "N2", "3H2+N2=2NH3"},//5
+        {"H2", "O2", "2H2+O2=2H2O"},//6
+        {"H2", "F2", "H2+F2=2HF"},//7
+        {"H2", "Na", "H2+2Na=2NaH"},//8
+        {"H2", "Mg", "H2+Mg=MgH2/H2+2Mg=2MgH/H2+Mg=H2Mg/H2+4Mg=2Mg2H/H2+2Mg=Mg2H2/3H2+2Mg=2MgH3"},//9
+        {"H2", "Al", "3H2+2Al=2AlH3/H2+2Al=2AlH/H2+Al=AlH2"},//10
+        {"H2", "Si", "2H2+Si=SiH4"},//11
+        {"H2", "P", "3H2+P=2PH3/H2+2P=2HP"},//12
+        {"H2", "S", "H2+S=H2S"},//13
+        {"H2", "Cl2", "H2+Cl2=2HCl"},//14
+        {"H2", "K", "H2+2K=2KH/2H2+K=KH4"},//15
+        {"H2", "Ca", "H2+Ca=CaH2"},//16
+        {"H2", "Fe", "3H2+2Fe=2FeH3/H2+Fe=H2Fe/H2+2Fe=2FeH"},//17
+        {"H2", "Cu", "H2+4Cu=H2Cu"},//18
+        {"H2", "Zn", "H2+Zn=ZnH2/H2+2Zn=2ZnH/H2+2Zn=2HZn"},//19
+        {"H2", "Ga", "3H2+2Ga=Ga2H6/3H2+2Ga=2GaH3"},//20
+        {"H2", "Ge", "H2+Ge=GeH2/H2+4Ge=2Ge2H"},//21
+        {"H2", "As", "3H2+As=2AsH3"},//22
+        {"H2", "Se", "H2+Se=H2Se"},//23
+        {"H2", "Br2", "H2+Br2=2HBr"},//24
+        {"H2", "Rb", "H2+2Rb=2RbH"},//25
+        {"H2", "Sr", "H2+Sr=SrH2/H2+2Sr=2SrH"},//26
+        {"H2", "Nb", "5H2+2Nb=2NbH5"},//27
+        {"H2", "Ag", "H2+2Ag=2AgH"},//28
+        {"H2", "Sn", "H2+Sn=SnH2/2H2+Sn=SnH4"},//29
+        {"H2", "Te", "H2+Te=H2Te"},//30
+        {"H2", "I2", "H2+I2=2HI"},//31
+        {"H2", "Cs", "H2+2Cs=2CsH"},//32
+        {"H2", "Ba", "H2+Ba=BaH2/H2+4Ba=2Ba2H/H2+2Ba=2BaH"},//33
+        {"H2", "Pb", "H2+2Pb=2PbH"},//34
+        {"H2", "Fr", "H2+2Fr=2FrH"},//35
+        {"H2", "Ra", "H2+2Ra=2RaH/H2+Ra=RaH2"}//36
     };
     public static final String[][] reaction_compare_Li = {
-            {"Li", "C", "Li+C=LiC/2Li+2C=Li2C2/4Li+C=Li4C"},//1
-            {"Li", "N2", "6Li+N2=2Li3N"},//2
-            {"Li", "O2", "4Li+O2=2Li2O"},//3
-            {"Li", "F2", "2Li+F2=2LiF"},//4
-            {"Li", "Si", "4Li+Si=Li4Si/Li+Si=LiSi"},//5
-            {"Li", "P", "3Li+P=Li3P/Li+P=LiP"},//6
-            {"Li", "S", "2Li+S=Li2S"},//7
-            {"Li", "Cl2", "2Li+Cl2=2LiCl"},//8
-            {"Li", "Br2", "2Li+Br2=2LiBr"},//9
-            {"Li", "Te", "2Li+Te=Li2Te"},//10
-            {"Li", "I2", "2Li+I2=2LiI"}//11
+        {"Li", "C", "Li+C=LiC/2Li+2C=Li2C2/4Li+C=Li4C"},//1
+        {"Li", "N2", "6Li+N2=2Li3N"},//2
+        {"Li", "O2", "4Li+O2=2Li2O"},//3
+        {"Li", "F2", "2Li+F2=2LiF"},//4
+        {"Li", "Si", "4Li+Si=Li4Si/Li+Si=LiSi"},//5
+        {"Li", "P", "3Li+P=Li3P/Li+P=LiP"},//6
+        {"Li", "S", "2Li+S=Li2S"},//7
+        {"Li", "Cl2", "2Li+Cl2=2LiCl"},//8
+        {"Li", "Br2", "2Li+Br2=2LiBr"},//9
+        {"Li", "Te", "2Li+Te=Li2Te"},//10
+        {"Li", "I2", "2Li+I2=2LiI"}//11
     };
     public static final String[][] reaction_compare_Be = {
         {"Be", "C", "Be+C=CBe/2Be+C=BE2C/Be+2C=BeC2/Be+C=BeC"},//1
@@ -100,7 +100,7 @@ public class Reactions {
         {"C", "Ba", "C+Ba=BaC"}//23
     };
     public static final String[][] reaction_compare_N = {
-            {"N2", "O2", "N2+O2=2NO/2N2+5O2=2N2O5/N2+2O2=2NO2/2N2+3O2=2N2O3/2N2+O2=2N2O/N2+O2=N2O2/N2+2O2=N2O4/5N2+2O2=2N5O2/3N2+2O2=2N3O2/6N2+O2=2N6O/2N2+O2=N4O2"},//1
+        {"N2", "O2", "N2+O2=2NO/2N2+5O2=2N2O5/N2+2O2=2NO2/2N2+3O2=2N2O3/2N2+O2=2N2O/N2+O2=N2O2/N2+2O2=N2O4/5N2+2O2=2N5O2/3N2+2O2=2N3O2/6N2+O2=2N6O/2N2+O2=N4O2"},//1
         {"N2", "F2", "N2+3F2=2NF3"},//2
         {"N2", "Na", "N2+6Na=2Na3N"},//3
         {"N2", "Mg", "N2+3Mg=Mg3N2"},//4
