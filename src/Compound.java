@@ -1,5 +1,5 @@
 import java.util.Scanner;
-
+//11
 public class Compound {
 
     public static void main(String[] args) {
