@@ -126,5 +126,6 @@ public class Reactions {
         {"N2", "Ba", "N2+3Ba=Ba3N2/N2+2Ba=2BaN/N2+6Ba=2Ba3N/N2+Ba=BaN2/N2+2Ba=2Ba2N2"},//23
         {"N2", "Hf", "2N2+3Hf=Hf3N4"},//24
         {"N2", "Ti", "2N2+3Ti=Ti3N4/N2+2Ti=2TiN"}//25
+        //123
     };
 }
