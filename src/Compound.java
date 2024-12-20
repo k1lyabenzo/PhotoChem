@@ -25,7 +25,7 @@ public class Compound {
     }
 
     private static String getReactionResult(String product1, String product2) {
-        String[][][] allReactions = {Reactions.reaction_compare_H, Reactions.reaction_compare_Li, Reactions.reaction_compare_Be, Reactions.reaction_compare_B, Reactions.reaction_compare_C, Reactions.reaction_compare_N};
+        String[][][] allReactions = {Reactions_Compare.reaction_compare_H, Reactions_Compare.reaction_compare_Li, Reactions_Compare.reaction_compare_Be, Reactions_Compare.reaction_compare_B, Reactions_Compare.reaction_compare_C, Reactions_Compare.reaction_compare_N};
         for (String[][] reactions : allReactions) {
             for (String[] reaction : reactions) {
                 if ((reaction[0].equals(product1) && reaction[1].equals(product2)) ||
