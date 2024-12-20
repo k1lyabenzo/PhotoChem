@@ -20,6 +20,22 @@ public class Reactions_Decomposition {
             {"HNO3", "4HNO3→4NO2+2H2O+O2"},
             {"AgCl", "2AgCl→Ag+Cl2"},
             {"NH4Cl", "NH4Cl→NH3+HCl"},
-            {"KNO3", "2KNO3→2KNO2+O2"}
+            {"KNO3", "2KNO3→2KNO2+O2"},
+            {"Ca(NO3)2", "Ca(NO3)2→Ca(NO2)2+O2"},
+            {"Mg(NO3)2", "Mg(NO3)2→Mg(NO2)2+O2"},
+            {"Ba(NO3)2", "Ba(NO3)2→Ba(NO2)2+O2"},
+            {"Sr(NO3)2", "Sr(NO3)2→Sr(NO2)2+O2"},
+            {"2Ca(NO3)2", "2Ca(NO3)2→2CaО+4NO2+O2"},
+            {"2Mg(NO3)2", "2Mg(NO3)2→2MgО+4NO2+O2"},
+            {"2Sr(NO3)2", "2Sr(NO3)2→2SrО+4NO2+O2"},
+            {"2Ba(NO3)2", "2Ba(NO3)2→2BaО+4NO2+O2"},
+            {"2Cu(NO3)2", "2Cu(NO3)2→2CuО+4NO2+O2"},
+            {"2Pb(NO3)2", "2Pb(NO3)2→2PbО+4NO2+O2"},
+            {"4Al(NO3)3", "4Al(NO3)3→2Al2O3+12NO2+3O2"},
+            {"4LiNO3", "4LiNO3→2Li2O+4NO2+O2"},
+            {"2AgNO3", "2AgNO3→2Ag+2NO2+O2"},
+            {"Hg(NO3)2", "Hg(NO3)2→Hg+2NO2+O2"},
+            {"NH4NO3", "NH4NO3→N2O+2H2O"},
+            {"2NH4NO3", "2NH4NO3→2N2+O2+4H2O"},
     };
 }
