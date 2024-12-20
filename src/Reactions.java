@@ -128,7 +128,14 @@ public class Reactions {
         {"N2", "Ti", "2N2+3Ti=Ti3N4/N2+2Ti=2TiN"}//25
     };
     public static final String[][] reaction_compare_O = {
-
+            {"O2", "H2O", "2H2O+O2=2H2O2"},//1
+            {"O2", "CO2", "2CO2+O2=2CO2"},//2
+            {"O2", "N2O", "2N2O+O2=2NO2"},//3
+            {"O2", "Ar", "2Ar+3O2=2ArO3"},//4
+            {"O2", "He", "2He+3O2=2HeO3"},//5
+            {"O2", "Ne", "2Ne+3O2=2NeO3"},//6
+            {"O2", "Kr", "2Kr+3O2=2KrO3"},//7
+            {"O2", "Xe", "2Xe+3O2=2XeO3"},//8
 
     };
 }
