@@ -128,10 +128,55 @@ public class Reactions {
         {"N2", "Ti", "2N2+3Ti=Ti3N4/N2+2Ti=2TiN"}//25
     };
     public static final String[][] reaction_compare_O = {
-            {"O2", "F2", "O2+2F2=2OF2/O2+2F2=2F2O/02+F2=F2O2/O2+F2=O2F2/7O2+2F2=2F207/3O2+2F2=2F2O3"},//1
-            {"O2", "Na", "O2+4Na=2Na2O/O2+2Na=Na2O2"},//2
-            {"O2", "Mg", "O2+2Mg=2MgO"},//3
-            {"O2", "Al", "3O2+4Al=2Al2O3"},//4
-            {"O2", "Si", "O2+Si=SiO2/2O2+Si=SiO4/O2+2Si=2SiO/3O2+2Si=2SiO3"},//5
+        {"O2", "F2", "O2+2F2=2OF2/O2+2F2=2F2O/02+F2=F2O2/O2+F2=O2F2/7O2+2F2=2F207/3O2+2F2=2F2O3"},//1
+        {"O2", "Na", "O2+4Na=2Na2O/O2+2Na=Na2O2"},//2
+        {"O2", "Mg", "O2+2Mg=2MgO"},//3
+        {"O2", "Al", "3O2+4Al=2Al2O3"},//4
+        {"O2", "Si", "O2+Si=SiO2/2O2+Si=SiO4/O2+2Si=2SiO/3O2+2Si=2SiO3"},//5
+        {"O2", "P", "5O2+4P=2P2O5"},//6
+        {"O2", "S", "O2+S=SO2"},//7
+        {"O2", "Cl2", "7O2+2Cl2=2Cl2O7/O2+2Cl2=2Cl2O/5O2+2Cl2=2Cl2O5/O2+Cl2=2ClO/3O2+2Cl2=2Cl2O3/O2+Cl2=Cl2O2/2O2+Cl2=2ClO2/7O2+Cl2=2ClO7/3O2+Cl2=2ClO3/2O2+27Cl2=2Cl27O2/O2+2Cl2=2OCl2"},//8
+        {"O2", "K", "O2+4K=2K2O/O2+K=KO2/O2+2K=K2O2/O2+2K=2KO/3O2+2K=2KO3/O2+4K=K4O2/2O2+2K=K2O4/5O2+4K=2K2O5"},//9
+        {"O2", "Ca", "O2+2Ca=2CaO"},//10
+        {"O2", "Sc", "3O2+4Sc=2Sc2O3"},//11
+        {"O2", "Ti", "O2+Ti=TiO2"},//12
+        {"O2", "V", "5O2+4V=2V2O5/O2+2V=2VO/O2+V=VO2/3O2+V=VO6/3O2+4V=2V2O3/O2+5V=V5O2"},//13
+        {"O2", "Cr", "3O2+2Cr=2CrO3/3O2+4Cr=2Cr2O3/O2+2Cr=2CrO/O2+Cr=CrO2"},//14
+        {"O2", "Mn","7O2+4Mn=2Mn2O7/O2+Mn=MnO2/O2+2Mn=2MnO/3O2+4Mn=2Mn2O3/5O2+4Mn=2Mn2O5/2O2+3Mn=Mn3O4/3O2+2Mn=2MnO3/O2+2Mn=Mn2O2/7O2+2Mn=2MnO7"},//15
+        {"O2", "Fe", "3O2+4Fe=2Fe2O3"},//16
+        {"O2", "Co", "3O2+4Co=2Co2O3/O2+2Co=2CoO/O2+2Co=2OCo"},//17
+        {"O2", "Ni", "O2+2Ni=2NiO"},//18
+        {"O2", "Cu", "O2+2Cu=2CuO"},//19
+        {"O2", "Zn", "O2+2Zn=2ZnO"},//20
+        {"O2", "Ga", "2O2+2Ga=Ga2O3O/3O2+4Ga=2Ga2O3"},//21
+        {"O2", "Ge", "O2+Ge=GeO2/O2+2Ge=2GeO"},//22
+        {"O2", "As", "5O2+4As=2As2O5/O2+As=AsO2/3O2+4As=2As2O3/5O2+2As=2AsO5/3O2+4As=As4O6/O2+2As=2AsO/3O2+2As=2AsO3"},//23
+        {"O2", "Se", "O2+Se=SeO2/3O2+2Se=2SeO3/O2+2Se=2SeO"},//24
+        {"O2", "Br", "5O2+2Br2=2Br2O5/7O2+2Br2=2Br2O7/2O2+Br2=2BrO2/O2+2Br2=2Br2O/3O2+2Br2=2Br2O3/O2+Br2=2BrO/4O2+3Br2=2O4Br3"},//25
+        {"02", "Rb", "02+Rb=RbO2"},//26
+        {"O2", "Sr", "O2+2Sr=2SrO"},//27
+        {"O2", "Nb", "5O2+4Nb=2Nb2O5/O2+2Nb=NbO2"},//28
+        {"O2", "Mo", "3O2+2Mo=2MoO3"},//29
+        {"O2", "Tc", "7O2+4Tc=2Tc2O7"},//30
+        {"O2", "Pd", "O2+2Pd=2PdO"},//31
+        {"O2", "Ag", "O2+2Ag=2AgO/O2+4Ag=2Ag2O/3O2+Ag=AgO6"},//32
+        {"O2", "Cd", "O2+2Cd=2CdO/O2+4Cd=2Cd20"},//33
+        {"O2", "In", "3O2+4In=2In2O3"},//34
+        {"O2", "Sn", "O2+Sn=SnO2/O2+2Sn=2SnO"},//35
+        {"O2", "Sb", "3O2+4Sb=Sb4O6/3O2+4Sb=2Sb2O3/5O2+4Sb=2Sb2O5"},//36
+        {"O2", "Te", "O2+Te=TeO2"},//37
+        {"O2", "I", "7O2+2I2=2I2O7/5O2+2I2=2I2O5/O2+I2=2IO/O2+2I2=2I2O"},//38
+        {"O2", "Cs", "O2+4Cs=2Cs2O/O2+Cs=CsO2/O2+2Cs=Cs2O2/O2+2Cs=2CsO/3O2+22Cs=2Cs11O3"},//39
+        {"O2", "Ba", "O2+2Ba=2BaO"},//40
+        {"O2", "La", "3O2+4La=2La2O3"},//41
+        {"O2", "W", "3O2+2W=2WO3"},//42
+        {"O2", "Pt", "O2+Pt=PtO2"},//43
+        {"O2", "Au", "O2+Au=AuO2"},//44
+        {"O2", "Hg", "O2+2Hg=2HgO"},//45
+        {"O2", "Ti", "O2+Ti=TiO2"},//46
+        {"O2", "Pb", "O2+Pb=PbO2"},//47
+        {"O2", "Bi", "3O2+4Bi=2Bi2O3"},//48
+        {"O2", "Po", "O2+2Po=2PoO/O2+Po=PoO2"},//49
+        {"O2", "Fr", "O2+4Fr=2Fr2O"},//50
     };
 }
