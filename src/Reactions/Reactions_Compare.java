@@ -204,5 +204,6 @@ public class Reactions_Compare {
             {"F2", "Mo", "3F2+Mo=MoF6/F2+2Mo=2MoF"},//20
             {"F2", "Ag", "F2+2Ag=2AgF"},//21
 
+
     };
 }
