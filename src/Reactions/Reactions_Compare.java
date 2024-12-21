@@ -201,6 +201,8 @@ public class Reactions_Compare {
             {"F2", "Br", "F2+Br2=2BrF"},//17
             {"F2", "Kr", "F2+Kr=KrF2"},//18
             {"F2", "Y", "3F2+2Y=2YF3"},//19
+            {"F2", "Mo", "3F2+Mo=MoF6/F2+2Mo=2MoF"},//20
+            {"F2", "Ag", "F2+2Ag=2AgF"},//21
 
     };
 }
