@@ -129,7 +129,7 @@ public class Reactions_Compare {
         {"N2", "Hf", "2N2+3Hf→Hf3N4"},//24
         {"N2", "Ti", "2N2+3Ti→Ti3N4/N2+2Ti→2TiN"}//25
     };
-    public static final String[][] reaction_compare_O = {
+    public static final String[][] reaction_compare_O2 = {
         {"O2", "F2", "O2+2F2=2OF2/O2+2F2=2F2O/02+F2=F2O2/O2+F2=O2F2/7O2+2F2=2F207/3O2+2F2=2F2O3"},//1
         {"O2", "Na", "O2+4Na=2Na2O/O2+2Na=Na2O2"},//2
         {"O2", "Mg", "O2+2Mg=2MgO"},//3
@@ -180,5 +180,27 @@ public class Reactions_Compare {
         {"O2", "Bi", "3O2+4Bi=2Bi2O3"},//48
         {"O2", "Po", "O2+2Po=2PoO/O2+Po=PoO2"},//49
         {"O2", "Fr", "O2+4Fr=2Fr2O"},//50
+    };
+    public static final String[][] reaction_compare_F = {
+            {"F2", "Na", "F2+2Na=2NaF"},//1
+            {"F2", "Mg", "F2+Mg=MgF2/F2+2Mg=2MgF/F2+2Mg=Mg2F2"},//2
+            {"F2", "Al", "3F2+2Al=2AlF3"},//3
+            {"F2", "Si", "2F2+Si=SiF4"},//4
+            {"F2", "P", "5F2+2P=2PF5/F2+2P=2PF/F2+2P=2FP/F2+P=PF2/3F2+P=PF6"},//5
+            {"F2", "S", "3F2+S=SF6"},//6
+            {"F2", "Cl", "F2+Cl2=2ClF/3F2+Cl2=2ClF3"},//7
+            {"F2", "K", "F2+2K=2KF/F2+K=KF2"},//8
+            {"F2", "Ca", "F2+Ca=CaF2"},//9
+            {"F2", "Cr", "F2+Cr=CrF2/3F2+Cr=CrF6"},//10
+            {"F2", "Fe", "3F2+2Fe=2FeF3/F2+2Fe=2FeF"},//11
+            {"F2", "Co", "3F2+2Co=2CoF3"},//12
+            {"F2", "Cu", "F2+Cu=CuF2"},//13
+            {"F2", "Zn", "F2+Zn=ZnF2"},//14
+            {"F2", "Ge", "2F2+Ge=GeF4"},//15
+            {"F2", "Se", "2F2+Se=SeF4"},//16
+            {"F2", "Br", "F2+Br2=2BrF"},//17
+            {"F2", "Kr", "F2+Kr=KrF2"},//18
+            {"F2", "Y", "3F2+2Y=2YF3"},//19
+
     };
 }
