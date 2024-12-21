@@ -181,7 +181,7 @@ public class Reactions_Compare {
         {"O2", "Po", "O2+2Po=2PoO/O2+Po=PoO2"},//49
         {"O2", "Fr", "O2+4Fr=2Fr2O"},//50
     };
-    public static final String[][] reaction_compare_F = {
+    public static final String[][] reaction_compare_F2 = {
             {"F2", "Na", "F2+2Na=2NaF"},//1
             {"F2", "Mg", "F2+Mg=MgF2/F2+2Mg=2MgF/F2+2Mg=Mg2F2"},//2
             {"F2", "Al", "3F2+2Al=2AlF3"},//3
@@ -203,7 +203,14 @@ public class Reactions_Compare {
             {"F2", "Y", "3F2+2Y=2YF3"},//19
             {"F2", "Mo", "3F2+Mo=MoF6/F2+2Mo=2MoF"},//20
             {"F2", "Ag", "F2+2Ag=2AgF"},//21
-
-
+            {"F2", "Sn", "2F2+Sn=SnF4"},//22
+            {"F2", "I", "7F2+I2=2IF7/F2+I2=2IF/5F2+I2=2IF5"},//23
+            {"F2", "Xe", "3F2+Xe=XeF6/2F2+Xe=XeF4/F2+Xe=XeF2"},//24
+            {"F2", "Cs", "F2+2Cs=2CsF"},//25
+            {"F2", "Ba", "F2+2Ba=2BaF"},//26
+            {"F2", "Pt", "F2+2Pt=2PtF/2F2+Pt=PtF4"},//27
+            {"F2", "Au", "3F2+2Au=2AuF3"},//28
+            {"F2", "Bi", "3F2+2Bi=2BiF3"},//29
+            {"F2", "Fr", "F2+2Fr=2FrF"},//30
     };
 }
