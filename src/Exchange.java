@@ -1,6 +1,15 @@
 import java.util.Scanner;
 
 public class Exchange {
+    // Массив катионов
+    static String[] cations = {"H", "Ag", "Al", "Ba", "Ca", "Co", "Cr", "Cu", "Fe",
+            "K", "Li", "Mg", "Mn", "Na", "NH4", "Ni", "Pb",
+            "Sn", "Sr", "Zn"};
+
+    // Массив анионов
+    static String[] anions = {"Br", "CH3COO", "Cl", "F", "I", "NO3", "NO2",
+            "OH", "PO4", "S", "SO3", "SO4"};
+
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -30,39 +39,41 @@ public class Exchange {
             if (product1.contains("HOH")) product1="H2O";
             if (reactant2.contains("HOH")) reactant2="H2O";
             if (reactant1.contains("HOH")) reactant1="H2O";
-            return "Final reaction: " + reactant1 + " + " + reactant2 + " -> " + product1 + " + " + product2;
+            return "Final reaction: " + reactant1 + "+" + reactant2 + "→" + product1 + "+" + product2;
         } else {
             return "No reaction was detected";
         }
     }
 
     private static boolean isSalt(String compound) {
-        // Простейшая проверка на соль (можно расширить)
-        return compound.contains("Na") || compound.contains("K") || compound.contains("Cl") || compound.contains("SO4") || compound.contains("HOH");
+        for (String cation : cations) {
+            if (compound.contains(cation)) {
+                for (String anion : anions) {
+                    if (compound.contains(anion)) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
     }
 
     private static String getCation(String salt) {
-        // Получение катиона (можно улучшить для более сложных соединений)
-        if (salt.contains("Na")) return "Na";
-        if (salt.contains("K")) return "K";
-        if (salt.contains("H")) return "H";
+        for (String cation : cations) {
+            if (salt.contains(cation)) {
+                return cation;
+            }
+        }
         return "";
     }
 
+
     private static String getAnion(String salt) {
-        // Получение аниона (можно улучшить для более сложных соединений)
-        if (salt.contains("Br")) return "Br";
-        if (salt.contains("CH3COO")) return "CH3COO";
-        if (salt.contains("Cl")) return "Cl";
-        if (salt.contains("F")) return "F";
-        if (salt.contains("I")) return "I";
-        if (salt.contains("NO3")) return "NO3";
-        if (salt.contains("NO2")) return "NO2";
-        if (salt.contains("OH")) return "OH";
-        if (salt.contains("PO4")) return "PO4";
-        if (salt.contains("S")) return "S";
-        if (salt.contains("SO3")) return "SO3";
-        if (salt.contains("SO4")) return "SO4";
+        for (String anion : anions) {
+            if (salt.contains(anion)) {
+                return anion;
+            }
+        }
         return "";
     }
 }
