@@ -1,6 +1,6 @@
 package Reactions;
 
-public class Reactions_Compare {
+public class Reactions_Compound {
     public static final String[][] reaction_compare_H = {
         {"H2", "Li", "H2+2Li→2LiH"},//1
         {"H2", "Be", "H2+Be→BeH2"},//2
