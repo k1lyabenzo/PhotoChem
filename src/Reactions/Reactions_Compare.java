@@ -129,7 +129,7 @@ public class Reactions_Compare {
         {"N2", "Hf", "2N2+3Hf→Hf3N4"},//24
         {"N2", "Ti", "2N2+3Ti→Ti3N4/N2+2Ti→2TiN"}//25
     };
-    public static final String[][] reaction_compare_O2 = {
+    public static final String[][] reaction_compare_O = {
         {"O2", "F2", "O2+2F2=2OF2/O2+2F2=2F2O/02+F2=F2O2/O2+F2=O2F2/7O2+2F2=2F207/3O2+2F2=2F2O3"},//1
         {"O2", "Na", "O2+4Na=2Na2O/O2+2Na=Na2O2"},//2
         {"O2", "Mg", "O2+2Mg=2MgO"},//3
@@ -181,7 +181,7 @@ public class Reactions_Compare {
         {"O2", "Po", "O2+2Po=2PoO/O2+Po=PoO2"},//49
         {"O2", "Fr", "O2+4Fr=2Fr2O"},//50
     };
-    public static final String[][] reaction_compare_F2 = {
+    public static final String[][] reaction_compare_F = {
         {"F2", "Na", "F2+2Na=2NaF"},//1
         {"F2", "Mg", "F2+Mg=MgF2/F2+2Mg=2MgF/F2+2Mg=Mg2F2"},//2
         {"F2", "Al", "3F2+2Al=2AlF3"},//3
