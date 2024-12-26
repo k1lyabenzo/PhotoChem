@@ -32,6 +32,7 @@ public class Reactions_Decomposition {
             {"Cu(NO3)2", "2Cu(NO3)2→2CuО+4NO2+O2"},
             {"Pb(NO3)2", "2Pb(NO3)2→2PbО+4NO2+O2"},
             {"Al(NO3)3", "4Al(NO3)3→2Al2O3+12NO2+3O2"},
+            {"Zn(NO3)2", "2Zn(NO3)3→2ZnO+4NO2+O2"},
             {"LiNO3", "4LiNO3→2Li2O+4NO2+O2"},
             {"AgNO3", "2AgNO3→2Ag+2NO2+O2"},
             {"Hg(NO3)2", "Hg(NO3)2→Hg+2NO2+O2"},
