@@ -39,7 +39,7 @@ public class Exchange {
             if (product1.contains("HOH")) product1="H2O";
             if (reactant2.contains("HOH")) reactant2="H2O";
             if (reactant1.contains("HOH")) reactant1="H2O";
-            return "Final reaction: " + reactant1 + "+" + reactant2 + "→" + product1 + "+" + product2;
+            return "Final reaction: " + reactant1 + "+" + reactant2 + "=" + product1 + "+" + product2;
         } else {
             return "No reaction was detected";
         }
