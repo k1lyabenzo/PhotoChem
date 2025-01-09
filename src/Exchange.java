@@ -1,79 +1,83 @@
-import java.util.Scanner;
-
 public class Exchange {
-    // Массив катионов
-    static String[] cations = {"H", "Ag", "Al", "Ba", "Ca", "Co", "Cr", "Cu", "Fe",
-            "K", "Li", "Mg", "Mn", "Na", "NH4", "Ni", "Pb",
-            "Sn", "Sr", "Zn"};
+    //Массив анионов
+    static String[][] anions = {
+            {"OH","-"},
+            {"F","-"},
+            {"Cl","-"},
+            {"Br","-"},
+            {"I","-"},
+            {"S","2-"},
+            {"HS","-"},
+            {"SO3","2-"},
+            {"HSO3","-"},
+            {"SO4","2-"},
+            {"HSO4","-"},
+            {"NO3","-"},
+            {"NO2","-"},
+            {"PO4","3-"},
+            {"HPO4","2-"},
+            {"H2PO4","-"},
+            {"CO3","2-"},
+            {"HCO3","-"},
+            {"CH3COO","-"},
+            {"SiO3","2-"},
+            {"MnO4","-"},
+            {"Cr2O7","2-"},
+            {"CrO4","2-"},
+            {"ClO3","-"},
+            {"ClO4","-"}
+    };
+    //Массив катионов
+    static String[][] kations = {
+            {"H","+"},
+            {"Li","+"},
+            {"K","+"},
+            {"Na","+"},
+            {"NH4","+"},
+            {"Ag","+"},
+            {"Ba","2+"},
+            {"Ca","2+"},
+            {"Mg","2+"},
+            {"Sr","2+"},
+            {"Fe","2+"},
+            {"Mn","2+"},
+            {"Zn","2+"},
+            {"Hg","2+"},
+            {"Pb","2+"},
+            {"Sn","2+"},
+            {"Cu","2+"},
+            {"Fe","3+"},
+            {"Al","3+"},
+            {"Fe","3+"},
+            {"Cr","3+"}
+    };
+    //Таблица растворимости
+    static String[][] table = {
+            //H
+            {"HF",""}, {"HCl",""}, {"HBr",""}, {"HI",""}, {"H2S",""}, {"H2SO3",""}, {"H2SO4",""}, {"HNO3",""}, {"HNO2",""}, {"H3PO4",""}, {"H2CO3",""}, {"HCH3COO",""}, {"H2SiO3",""}, {"HMnO4",""}, {"H2Cr2O7",""}, {"H2CrO4",""}, {"HClO3",""}, {"HClO4",""},
+            //Li
+            {"LiOH",""}, {"LiF",""}, {"LiCl",""}, {"LiBr",""}, {"LiI",""}, {"Li2S",""}, {"LiHS",""}, {"Li2SO3",""}, {"LiHSO3",""}, {"Li2SO4",""}, {"LiHSO4",""}, {"LiNO3",""}, {"LiNO2",""}, {"Li3PO4",""}, {"Li2HPO4",""}, {"LiH2PO4",""}, {"Li2CO3",""}, {"LiHCO3",""}, {"LiCH3COO",""}, {"Li2SiO3",""}, {"LiMnO4",""}, {"Li2Cr2O7",""}, {"Li2CrO4",""}, {"LiClO3",""}, {"LiClO4",""},
+            //K
+            {"KOH",""}, {"KF",""}, {"KCl",""}, {"KBr",""}, {"KI",""}, {"K2S",""}, {"KHS",""}, {"K2SO3",""}, {"K2HSO3",""}, {"K2SO4",""}, {"KHSO4",""}, {"KNO3",""}, {"KNO2",""}, {"K3PO4",""}, {"K2HPO4",""}, {"K2HPO4",""}, {"K2CO3",""}, {"KHCO3",""}, {"KCH3COO",""}, {"K2SiO3",""}, {"KMnO4",""}, {"K2Cr2O7",""}, {"K2CrO4",""}, {"KClO3",""}, {"KClO4",""},
+            //Na
+            {"NaOH",""}, {"NaF",""}, {"NaCl",""}, {"NaBr",""}, {"NaI",""}, {"Na2S",""}, {"NaHS",""}, {"Na2SO3",""}, {"Na2HSO3",""}, {"Na2SO4",""}, {"NaHSO4",""}, {"NaNO3",""}, {"NaNO2",""}, {"Na3PO4",""}, {"Na2HPO4",""}, {"NaH2PO4",""}, {"Na2CO3",""}, {"NaHCO3",""}, {"NaCH3COO",""}, {"Na2SiO3",""}, {"NaMnO4",""}, {"Na2Cr2O7",""}, {"Na2CrO4",""}, {"NaClO3",""}, {"NaClO4",""},
+            //NH4
+            {"NH4OH",""}, {"NH4F",""}, {"NH4Cl",""}, {"NH4Br",""}, {"NH4I",""}, {"(NH4)2S",""}, {"NH4HS",""}, {"(NH4)2SO3",""}, {"(NH4)2HSO3",""}, {"(NH4)2SO4",""}, {"NH4HSO4",""}, {"NH4NO3",""}, {"NH4NO2",""}, {"(NH4)3PO4",""}, {"(NH4)2HPO4",""}, {"NH4H2PO4",""}, {"(NH4)2CO3",""}, {"NH4HCO3",""}, {"NH4CH3COO",""}, {"(NH4)2SiO3",""}, {"NH4MnO4",""}, {"(NH4)2Cr2O7",""}, {"(NH4)2CrO4",""}, {"NH4ClO3",""}, {"NH4ClO4",""},
+            //Ag
+            {"AgOH",""}, {"AgF",""}, {"AgCl",""}, {"AgBr",""}, {"AgI",""}, {"Ag2S",""}, {"AgHS",""}, {"Ag2SO3",""}, {"Ag2HSO3",""}, {"Ag2SO4",""}, {"AgHSO4",""}, {"AgNO3",""}, {"AgNO2",""}, {"Ag3PO4",""}, {"Ag2HPO4",""}, {"AgH2PO4",""}, {"Ag2CO3",""}, {"AgHCO3",""}, {"AgCH3COO",""}, {"Ag2SiO3",""}, {"AgMnO4",""}, {"Ag2Cr2O7",""}, {"Ag2CrO4",""}, {"AgClO3",""}, {"AgClO4",""},
+            //Ba
+            {"Ba(OH)2",""}, {"Ba(F)2",""}, {"Ba(Cl)2",""}, {"Ba(Br)2",""}, {"Ba(I)2",""}, {"BaS",""}, {"Ba(HS)2",""}, {"BaSO3",""}, {"BaHSO3",""}, {"BaSO4",""}, {"Ba(HSO4)2",""}, {"Ba(NO3)2",""}, {"Ba(NO2)2",""}, {"Ba2(PO4)2",""}, {"BaHPO4",""}, {"Ba(H2PO4)2",""}, {"BaCO3",""}, {"Ba(HCO3)2",""}, {"Ba(CH3COO)2",""}, {"BaSiO3",""}, {"Ba(MnO4)2",""}, {"BaCr2O7",""}, {"BaCrO4",""}, {"Ba(ClO3)2",""}, {"Ba(ClO4)2",""},
+            //Ca
+            {"Ca(OH)2",""}, {"Ca(F)2",""}, {"Ca(Cl)2",""}, {"Ca(Br)2",""}, {"Ca(I)2",""}, {"CaS",""}, {"Ca(HS)2",""}, {"CaSO3",""}, {"CaHSO3",""}, {"CaSO4",""}, {"Ca(HSO4)2",""}, {"Ca(NO3)2",""}, {"Ca(NO2)2",""}, {"Ca3(PO4)2",""}, {"CaHPO4",""}, {"Ca(H2PO4)2",""}, {"CaCO3",""}, {"Ca(HCO3)2",""}, {"Ca(CH3COO)2",""}, {"CaSiO3",""}, {"Ca(MnO4)2",""}, {"CaCr2O7",""}, {"CaCrO4",""}, {"Ca(ClO3)2",""}, {"Ca(ClO4)2",""},
+            //Mg
+            {"Mg(OH)2",""}, {"Mg(F)2",""}, {"Mg(Cl)2",""}, {"Mg(Br)2",""}, {"Mg(I)2",""}, {"MgS",""}, {"Mg(HS)2",""}, {"MgSO3",""}, {"MgHSO3",""}, {"MgSO4",""}, {"Mg(HSO4)2",""}, {"MgNO3",""}, {"MgNO2",""}, {"Mg3(PO4)2",""}, {"MgHPO4",""}, {"Mg(H2PO4)2",""}, {"MgCO3",""}, {"Mg(HCO3)2",""}, {"Mg(CH3COO)2",""}, {"MgSiO3",""}, {"Mg(MnO4)2",""}, {"MgCr2O7",""}, {"MgCrO4",""}, {"Mg(ClO3)2",""}, {"Mg(ClO4)2",""},
+            //Sr
+            {"Sr(OH)2",""}, {"Sr(F)2",""}, {"Sr(Cl)2",""}, {"Sr(Br)2",""}, {"Sr(I)2",""}, {"SrS",""}, {"Sr(HS)2",""}, {"SrSO3",""}, {"SrHSO3",""}, {"SrSO4",""}, {"Sr(HSO4)2",""}, {"Sr(NO3)2",""}, {"Sr(NO2)2",""}, {"Sr3(PO4)2",""}, {"SrHPO4",""}, {"Sr(H2PO4)2",""}, {"SrCO3",""}, {"Sr(HCO3)2",""}, {"Sr(CH3COO)2",""}, {"SrSiO3",""}, {"Sr(MnO4)2",""}, {"SrCr2O7",""}, {"SrCrO4",""}, {"Sr(ClO3)2",""}, {"Sr(ClO4)2",""},
+            //Fe
+            {"Fe(OH)2",""}, {"Fe(F)2",""}, {"Fe(Cl)2",""}, {"Fe(Br)2",""}, {"Fe(I)2",""}, {"FeS",""}, {"Fe(HS)2",""}, {"FeSO3",""}, {"FeHSO3",""}, {"FeSO4",""}, {"Fe(HSO4)2",""}, {"Fe(NO3)2",""}, {"Fe(NO2)2",""}, {"Fe3(PO4)2",""}, {"FeHPO4",""}, {"Fe(H2PO4)2",""}, {"FeCO3",""}, {"Fe(HCO3)2",""}, {"Fe(CH3COO)2",""}, {"FeSiO3",""}, {"Fe(MnO4)2",""}, {"FeCr2O7",""}, {"FeCrO4",""}, {"Fe(ClO3)2",""}, {"Fe(ClO4)2",""},
+            //Mn
+            {"Mn(OH)2",""}, {"Mn(F)2",""}, {"Mn(Cl)2",""}, {"Mn(Br)2",""}, {"Mn(I)2",""}, {"MnS",""}, {"Mn(HS)2",""}, {"MnSO3",""}, {"MnHSO3",""}, {"MnSO4",""}, {"Mn(HSO4)2",""}, {"Mn(NO3)2",""}, {"Mn(NO2)2",""}, {"Mn3(PO4)2",""}, {"MnHPO4",""}, {"Mn(H2PO4)2",""}, {"MnCO3",""}, {"Mn(HCO3)2",""}, {"Mn(CH3COO)2",""}, {"MnSiO3",""}, {"Mn(MnO4)2",""}, {"MnCr2O7",""}, {"MnCrO4",""}, {"Mn(ClO3)2",""}, {"Mn(ClO4)2",""},
+            //Zn
 
-    // Массив анионов
-    static String[] anions = {"Br", "CH3COO", "Cl", "F", "I", "NO3", "NO2",
-            "OH", "PO4", "S", "SO3", "SO4"};
-
-
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-        // Ввод первого реагента
-        System.out.print("Product A: ");
-        String reactant1 = scanner.nextLine().trim();
-        if (reactant1.contains("H2O")) reactant1="HOH";
-
-        // Ввод второго реагента
-        System.out.print("Product B: ");
-        String reactant2 = scanner.nextLine().trim();
-        if (reactant2.contains("H2O")) reactant2="HOH";
-
-        // Определение возможной реакции
-        String reaction = determineReaction(reactant1, reactant2);
-        System.out.println(reaction);
-    }
-
-    private static String determineReaction(String reactant1, String reactant2) {
-        // Пример простого определения типов реагентов
-        if (isSalt(reactant1) && isSalt(reactant2)) {
-            // Обменная реакция между двумя солями
-            String product1 = getCation(reactant1) + getAnion(reactant2);
-            String product2 = getCation(reactant2) + getAnion(reactant1);
-            if (product2.contains("HOH")) product2="H2O";
-            if (product1.contains("HOH")) product1="H2O";
-            if (reactant2.contains("HOH")) reactant2="H2O";
-            if (reactant1.contains("HOH")) reactant1="H2O";
-            return "Final reaction: " + reactant1 + "+" + reactant2 + "=" + product1 + "+" + product2;
-        } else {
-            return "No reaction was detected";
-        }
-    }
-
-    private static boolean isSalt(String compound) {
-        for (String cation : cations) {
-            if (compound.contains(cation)) {
-                for (String anion : anions) {
-                    if (compound.contains(anion)) {
-                        return true;
-                    }
-                }
-            }
-        }
-        return false;
-    }
-
-    private static String getCation(String salt) {
-        for (String cation : cations) {
-            if (salt.contains(cation)) {
-                return cation;
-            }
-        }
-        return "";
-    }
-
-
-    private static String getAnion(String salt) {
-        for (String anion : anions) {
-            if (salt.contains(anion)) {
-                return anion;
-            }
-        }
-        return "";
-    }
+    };
 }
