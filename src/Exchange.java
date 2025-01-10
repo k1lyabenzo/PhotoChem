@@ -51,7 +51,7 @@ public class Exchange {
             {"Cr","3+"}
     };
     //Таблица растворимости
-    static String[][] table = {
+    public static String[][] table = {
             //H
             {"HF","P"}, {"HCl","P"}, {"HBr","P"}, {"HI","P"}, {"H2S","P"}, {"H2SO3","P"}, {"H2SO4","P"}, {"HNO3","P"}, {"HNO2","P"}, {"H3PO4","P"}, {"H2CO3","P"}, {"HCH3COO","P"}, {"H2SiO3","H"}, {"HMnO4","P"}, {"H2Cr2O7","P"}, {"H2CrO4","P"}, {"HClO3","P"}, {"HClO4","P"},
             //Li
