@@ -1,7 +1,7 @@
 package Reactions;
 
 public class Reactions_Compound {
-    public static final String[][] reaction_compare_H = {
+    public static final String[][] reaction_compound_H = {
         {"H2", "Li", "H2+2Li=2LiH"},//1
         {"H2", "Be", "H2+Be=BeH2"},//2
         {"H2", "B", "3H2+2B=B2H6"},//3
@@ -39,7 +39,7 @@ public class Reactions_Compound {
         {"H2", "Fr", "H2+2Fr=2FrH"},//35
         {"H2", "Ra", "H2+2Ra=2RaH/H2+Ra=RaH2"}//36
     };
-    public static final String[][] reaction_compare_Li = {
+    public static final String[][] reaction_compound_Li = {
         {"Li", "C", "Li+C=LiC/2Li+2C=Li2C2/4Li+C=Li4C"},//1
         {"Li", "N2", "6Li+N2=2Li3N"},//2
         {"Li", "O2", "4Li+O2=2Li2O"},//3
@@ -52,7 +52,7 @@ public class Reactions_Compound {
         {"Li", "Te", "2Li+Te=Li2Te"},//10
         {"Li", "I2", "2Li+I2=2LiI"}//11
     };
-    public static final String[][] reaction_compare_Be = {
+    public static final String[][] reaction_compound_Be = {
         {"Be", "C", "Be+C=CBe/2Be+C=BE2C/Be+2C=BeC2/Be+C=BeC"},//1
         {"Be", "N2", "3Be+N2=Be3N2/Be+N2=BeN2"},//2
         {"Be", "O2", "2Be+O2=2BeO"},//3
@@ -62,7 +62,7 @@ public class Reactions_Compound {
         {"Be", "Cl2", "Be+Cl2=BeCl2"},//7
         {"Be", "I2", "Be+I2=BeI2"}//8
     };
-    public static final String[][] reaction_compare_B = {
+    public static final String[][] reaction_compound_B = {
         {"B", "C", "B+C=BC"},//1
         {"B", "N2", "2B+N2=2BN"},//2
         {"B", "O2", "4B+3O2=2B2O3/2B+O2=2BO"},//3
@@ -76,7 +76,7 @@ public class Reactions_Compound {
         {"B", "Sr", "2B+3Sr=Sr3B2"},//11
         {"B", "I2", "2B+I2=2BI"}//12
     };
-    public static final String[][] reaction_compare_C = {
+    public static final String[][] reaction_compound_C = {
         {"C", "N2", "2C+N2=C2N2/2C+N2=C2N2"},//1
         {"C", "O2", "C+O2=CO2/2C+O2=2CO"},//2
         {"C", "F2", "C+2F2=CF4"},//3
@@ -101,7 +101,7 @@ public class Reactions_Compound {
         {"C", "Sn", "C+2Sn=Sn2C"},//22
         {"C", "Ba", "C+Ba=BaC"}//23
     };
-    public static final String[][] reaction_compare_N = {
+    public static final String[][] reaction_compound_N = {
         {"N2", "O2", "N2+O2=2NO/2N2+5O2=2N2O5/N2+2O2=2NO2/2N2+3O2=2N2O3/2N2+O2=2N2O/N2+O2=N2O2/N2+2O2=N2O4/5N2+2O2=2N5O2/3N2+2O2=2N3O2/6N2+O2=2N6O/2N2+O2=N4O2"},//1
         {"N2", "F2", "N2+3F2=2NF3"},//2
         {"N2", "Na", "N2+6Na=2Na3N"},//3
@@ -129,7 +129,7 @@ public class Reactions_Compound {
         {"N2", "Hf", "2N2+3Hf=Hf3N4"},//24
         {"N2", "Ti", "2N2+3Ti=Ti3N4/N2+2Ti=2TiN"}//25
     };
-    public static final String[][] reaction_compare_O = {
+    public static final String[][] reaction_compound_O = {
         {"O2", "F2", "O2+2F2=2OF2/O2+2F2=2F2O/02+F2=F2O2/O2+F2=O2F2/7O2+2F2=2F207/3O2+2F2=2F2O3"},//1
         {"O2", "Na", "O2+4Na=2Na2O/O2+2Na=Na2O2"},//2
         {"O2", "Mg", "O2+2Mg=2MgO"},//3
@@ -181,7 +181,7 @@ public class Reactions_Compound {
         {"O2", "Po", "O2+2Po=2PoO/O2+Po=PoO2"},//49
         {"O2", "Fr", "O2+4Fr=2Fr2O"},//50
     };
-    public static final String[][] reaction_compare_F = {
+    public static final String[][] reaction_compound_F = {
         {"F2", "Na", "F2+2Na=2NaF"},//1
         {"F2", "Mg", "F2+Mg=MgF2/F2+2Mg=2MgF/F2+2Mg=Mg2F2"},//2
         {"F2", "Al", "3F2+2Al=2AlF3"},//3
