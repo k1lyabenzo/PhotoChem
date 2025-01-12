@@ -65,6 +65,7 @@ public class Reactions_Decomposition {
             {"(NH4)2Cr2O7", "(NH4)2Cr2O7=N2+Cr2O3+4H2O"},
             {"KMnO4", "2KMnO4=K2MnO4+MnO2+O2"},
             {"KClO3", "4KClO3=3KClO4+KCl/2KClO3=2KCl+3O2"},
-            {"KClO4", "KClO4=KCl+2O2"}
+            {"KClO4", "KClO4=KCl+2O2"},
+            {"NaNO3", "2NaNO3=2NaNO2+O2"},
     };
 }
