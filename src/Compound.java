@@ -4,15 +4,7 @@ import java.util.*;
 
 public class Compound {
 
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.print("Product A: ");
-        String firstProduct = scanner.nextLine().trim();
-
-        System.out.print("Product B: ");
-        String secondProduct = scanner.nextLine().trim();
-
+    public static void main(String firstProduct, String secondProduct) {
         String result = getReactionResult(firstProduct, secondProduct);
         if (result != null) {
             String[] products = result.contains("/") ? result.split("/") : new String[]{result};
@@ -22,8 +14,6 @@ public class Compound {
         } else {
             System.out.println("No reaction was detected");
         }
-
-        scanner.close();
     }
 
     private static String getReactionResult(String product1, String product2) {

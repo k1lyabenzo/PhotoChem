@@ -3,12 +3,7 @@ import Reactions.Reactions_Decomposition;
 import java.util.Scanner;
 
 public class Decomposition {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.print("Product: ");
-        String firstProduct = scanner.nextLine().trim();
-
+    public static void main(String firstProduct) {
         String result = getReactionResult(firstProduct);
         if (result != null) {
             String[] products = result.contains("/") ? result.split("/") : new String[]{result};
@@ -18,8 +13,6 @@ public class Decomposition {
         } else {
             System.out.println("No reaction was detected");
         }
-
-        scanner.close();
     }
 
     private static String getReactionResult(String product1) {
