@@ -41,8 +41,7 @@ public class Auto {
             }
         }
         if (found_hard_second && found_hard_first) {
-            //Код для обмена
-            System.out.println("Обмен");
+            Exchange.main(firstProductModif, secondProduct);
         } else if (found_hard_first || found_hard_second){
             //Код для замещения
             System.out.println("Замещение");
