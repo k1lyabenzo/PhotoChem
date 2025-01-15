@@ -1,52 +1,50 @@
-import Reactions.Reactions_Decomposition;
+import Reactions.Reactions_Decomposition
+import java.util.*
+import kotlin.system.exitProcess
 
-import java.util.Scanner;
+fun main() {
+    val tableExchange = table
+    val tableDecomposition = Reactions_Decomposition.reaction_decomposition
 
-public class Auto {
-    public static void main(String[] args) {
-        String[][] table_exchange = Exchange.table;
-        String[][] table_decomposition = Reactions_Decomposition.reaction_decomposition;
+    val scanner = Scanner(System.`in`)
+    print("Product A: ")
+    val firstProduct = scanner.nextLine().trim { it <= ' ' }
 
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Product A: ");
-        String firstProduct = scanner.nextLine().trim();
+    val firstProductModified = firstProduct.replace("+", "")
 
-        String firstProductModif = firstProduct.replace("+", "");
-
-        if (!firstProduct.contains("+")) {
-            for (String[] reaction : table_decomposition) {
-                if (reaction[0].equals(firstProduct)) {
-                    Decomposition.main(firstProduct);
-                    System.exit(0);
-                }
-            }
-            System.out.println("No decomposition reaction found for " + firstProduct);
-            System.exit(0);
-        }
-
-        System.out.print("Product B: ");
-        String secondProduct = scanner.nextLine().trim();
-        boolean found_hard_first = false;
-        boolean found_hard_second = false;
-
-        // Проверка наличия продукта в первом столбце
-        for (String[] reaction : table_exchange) {
-            if (reaction[0].equals(firstProductModif)) {
-                found_hard_first=true;
+    if (!firstProduct.contains("+")) {
+        for (reaction in tableDecomposition) {
+            if (reaction[0] == firstProduct) {
+                main(firstProduct)
+                exitProcess(0)
             }
         }
-        for (String[] reaction : table_exchange) {
-            if (reaction[0].equals(secondProduct)) {
-                found_hard_second=true;
-            }
+        println("No decomposition reaction found for $firstProduct")
+        exitProcess(0)
+    }
+
+    print("Product B: ")
+    val secondProduct = scanner.nextLine().trim { it <= ' ' }
+    var foundHardFirst = false
+    var foundHardSecond = false
+
+    // Проверка наличия продукта в первом столбце
+    for (reaction in tableExchange) {
+        if (reaction[0] == firstProductModified) {
+            foundHardFirst = true
         }
-        if (found_hard_second && found_hard_first) {
-            Exchange.main(firstProductModif, secondProduct);
-        } else if (found_hard_first || found_hard_second){
-            //Код для замещения
-            System.out.println("Замещение");
-        } else {
-            Compound.main(firstProductModif, secondProduct);
+    }
+    for (reaction in tableExchange) {
+        if (reaction[0] == secondProduct) {
+            foundHardSecond = true
         }
+    }
+    if (foundHardSecond && foundHardFirst) {
+        main(firstProductModified, secondProduct)
+    } else if (foundHardFirst || foundHardSecond) {
+        //Код для замещения
+        println("Замещение")
+    } else {
+        mainCompound(firstProductModified, secondProduct)
     }
 }
