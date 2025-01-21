@@ -117,8 +117,32 @@ fun main(firstProduct: String, secondProduct: String) {
                 }
             }
 
-            val newFirstProduct = "${kation1[0]}${if (kation1[1] == "1") "" else kation1[1]}${anion2[0]}${if (anion2[1] == "1") "" else anion2[1]}"
-            val newSecondProduct = "${kation2[0]}${if (kation2[1] == "1") "" else kation2[1]}${anion1[0]}${if (anion1[1] == "1") "" else anion1[1]}"
+            val newFirstProduct = "${kation1[0]}${if (anion2[1] == "1") "" else anion2[1]}${if ((anion2[0]=="OH"||anion2[0]=="HS"
+                ||anion2[0]=="SO3"||anion2[0]=="HSO3"||anion2[0]=="SO4"||anion2[0]=="HSO4"
+                ||anion2[0]=="NO3"||anion2[0]=="NO2"||anion2[0]=="PO4"||anion2[0]=="HPO4"
+                ||anion2[0]=="H2PO4"||anion2[0]=="CO3"||anion2[0]=="HCO3"||anion2[0]=="CH3COO"
+                ||anion2[0]=="SiO3"||anion2[0]=="MnO4"||anion2[0]=="Cr2O7"||anion2[0]=="CrO4"
+                ||anion2[0]=="ClO3"||anion2[0]=="ClO4")&&kation1[1]!="1") "(" else ""}" +
+                    "${anion2[0]}${if ((anion2[0]=="OH"||anion2[0]=="HS"
+                ||anion2[0]=="SO3"||anion2[0]=="HSO3"||anion2[0]=="SO4"||anion2[0]=="HSO4"
+                ||anion2[0]=="NO3"||anion2[0]=="NO2"||anion2[0]=="PO4"||anion2[0]=="HPO4"
+                ||anion2[0]=="H2PO4"||anion2[0]=="CO3"||anion2[0]=="HCO3"||anion2[0]=="CH3COO"
+                ||anion2[0]=="SiO3"||anion2[0]=="MnO4"||anion2[0]=="Cr2O7"||anion2[0]=="CrO4"
+                ||anion2[0]=="ClO3"||anion2[0]=="ClO4")&&kation1[1]!="1") ")" else ""}${if (kation1[1] == "1") "" else kation1[1]}"
+            val newSecondProduct = "${kation2[0]}${if (anion1[1] == "1") "" else anion1[1]}${if ((anion1[0]=="OH"||anion1[0]=="HS"
+                ||anion1[0]=="SO3"||anion1[0]=="HSO3"||anion1[0]=="SO4"||anion1[0]=="HSO4"
+                ||anion1[0]=="NO3"||anion1[0]=="NO2"||anion1[0]=="PO4"||anion1[0]=="HPO4"
+                ||anion1[0]=="H2PO4"||anion1[0]=="CO3"||anion1[0]=="HCO3"||anion1[0]=="CH3COO"
+                ||anion1[0]=="SiO3"||anion1[0]=="MnO4"||anion1[0]=="Cr2O7"||anion1[0]=="CrO4"
+                ||anion1[0]=="ClO3"||anion1[0]=="ClO4")&&kation2[1]!="1") "(" else ""}" +
+                    "${anion1[0]}${if ((anion1[0]=="OH"||anion1[0]=="HS"
+                ||anion1[0]=="SO3"||anion1[0]=="HSO3"||anion1[0]=="SO4"||anion1[0]=="HSO4"
+                ||anion1[0]=="NO3"||anion1[0]=="NO2"||anion1[0]=="PO4"||anion1[0]=="HPO4"
+                ||anion1[0]=="H2PO4"||anion1[0]=="CO3"||anion1[0]=="HCO3"||anion1[0]=="CH3COO"
+                ||anion1[0]=="SiO3"||anion1[0]=="MnO4"||anion1[0]=="Cr2O7"||anion1[0]=="CrO4"
+                ||anion1[0]=="ClO3"||anion1[0]=="ClO4")&&kation2[1]!="1") ")" else ""}${if (kation2[1] == "1") "" else kation2[1]}"
+
+            val ratio = "$"
 
             println("$firstProduct + $secondProduct = ${if (newFirstProduct.contains("HOH")) "H2O" else newFirstProduct} + ${if (newSecondProduct.contains("HOH")) "H2O" else newSecondProduct}")
         }
