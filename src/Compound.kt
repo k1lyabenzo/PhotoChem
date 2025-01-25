@@ -22,14 +22,7 @@ private fun getReactionResult(product1: String, product2: String): String? {
         Reactions_Compound.reaction_compound_O,
         Reactions_Compound.reaction_compound_F
     )
-
-    for (reactions in allReactions) {
-        for (reaction in reactions) {
-            if ((reaction[0] == product1 && reaction[1] == product2) ||
-                (reaction[0] == product2 && reaction[1] == product1)) {
-                return reaction[2]
-            }
-        }
-    }
+    for (reactions in allReactions) for (reaction in reactions)
+        if ((reaction[0] == product1 && reaction[1] == product2) || (reaction[0] == product2 && reaction[1] == product1)) return reaction[2]
     return null
 }

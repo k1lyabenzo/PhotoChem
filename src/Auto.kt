@@ -28,23 +28,19 @@ fun main() {
     var foundHardFirst = false
     var foundHardSecond = false
 
-    // Проверка наличия продукта в первом столбце
+    var firstProductIndex = "H"
+    var secondProductIndex = "H"
+
     for (reaction in tableExchange) {
-        if (reaction[0] == firstProductModified) {
+        if (reaction[0] == firstProductModified){
             foundHardFirst = true
-        }
-    }
-    for (reaction in tableExchange) {
-        if (reaction[0] == secondProduct) {
+            firstProductIndex = reaction[1]}
+        if (reaction[0] == secondProduct){
             foundHardSecond = true
-        }
+            secondProductIndex = reaction[1]}
     }
-    if (foundHardSecond && foundHardFirst) {
-        main(firstProductModified, secondProduct)
-    } else if (foundHardFirst || foundHardSecond) {
-        //Код для замещения
-        println("Замещение")
-    } else {
-        mainCompound(firstProductModified, secondProduct)
-    }
+
+    if ((foundHardSecond && foundHardFirst) && (firstProductIndex=="P" && secondProductIndex=="P")) main(firstProductModified, secondProduct)
+    else if (foundHardFirst || foundHardSecond) println("Замещение")
+    else mainCompound(firstProductModified, secondProduct)
 }

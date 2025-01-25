@@ -60,91 +60,43 @@ val table = arrayOf(
 )
 
 fun main(firstProduct: String, secondProduct: String) {
-    var fpP = false
-    var spP = false
+    val anion1 = arrayOf("", "")
+    val anion2 = arrayOf("", "")
+    val kation1 = arrayOf("", "")
+    val kation2 = arrayOf("", "")
 
-    if (firstProduct != secondProduct) {
-        for (reaction in table) {
-            if (reaction[0] == firstProduct) {
-                if (reaction[1] == "P") {
-                    fpP = true
-                    break
-                }
-            }
-        }
-
-        if (fpP) {
-            for (reaction in table) {
-                if (reaction[0] == secondProduct) {
-                    if (reaction[1] == "P") {
-                        spP = true
-                        break
-                    }
-                }
-            }
-        } else {
-            return
-        }
-
-        if (spP) {
-            val anion1 = arrayOf("", "")
-            val anion2 = arrayOf("", "")
-            val kation1 = arrayOf("", "")
-            val kation2 = arrayOf("", "")
-
-            for (reaction in kations) {
-                if (firstProduct.contains(reaction[0])) {
-                    kation1[0] = reaction[0]
-                    kation1[1] = reaction[1]
-                }
-                if (secondProduct.contains(reaction[0])) {
-                    kation2[0] = reaction[0]
-                    kation2[1] = reaction[1]
-                }
-            }
-
-            val firstProductModified = firstProduct.replace(kation1[0], "")
-            val secondProductModified = secondProduct.replace(kation2[0], "")
-
-            for (reaction in anions) {
-                if (firstProductModified.contains(reaction[0])) {
-                    anion1[0] = reaction[0]
-                    anion1[1] = reaction[1]
-                }
-                if (secondProductModified.contains(reaction[0])) {
-                    anion2[0] = reaction[0]
-                    anion2[1] = reaction[1]
-                }
-            }
-
-            val newFirstProduct = "${kation1[0]}${if (anion2[1] == "1") "" else anion2[1]}${if ((anion2[0]=="OH"||anion2[0]=="HS"
-                ||anion2[0]=="SO3"||anion2[0]=="HSO3"||anion2[0]=="SO4"||anion2[0]=="HSO4"
-                ||anion2[0]=="NO3"||anion2[0]=="NO2"||anion2[0]=="PO4"||anion2[0]=="HPO4"
-                ||anion2[0]=="H2PO4"||anion2[0]=="CO3"||anion2[0]=="HCO3"||anion2[0]=="CH3COO"
-                ||anion2[0]=="SiO3"||anion2[0]=="MnO4"||anion2[0]=="Cr2O7"||anion2[0]=="CrO4"
-                ||anion2[0]=="ClO3"||anion2[0]=="ClO4")&&kation1[1]!="1") "(" else ""}" +
-                    "${anion2[0]}${if ((anion2[0]=="OH"||anion2[0]=="HS"
-                ||anion2[0]=="SO3"||anion2[0]=="HSO3"||anion2[0]=="SO4"||anion2[0]=="HSO4"
-                ||anion2[0]=="NO3"||anion2[0]=="NO2"||anion2[0]=="PO4"||anion2[0]=="HPO4"
-                ||anion2[0]=="H2PO4"||anion2[0]=="CO3"||anion2[0]=="HCO3"||anion2[0]=="CH3COO"
-                ||anion2[0]=="SiO3"||anion2[0]=="MnO4"||anion2[0]=="Cr2O7"||anion2[0]=="CrO4"
-                ||anion2[0]=="ClO3"||anion2[0]=="ClO4")&&kation1[1]!="1") ")" else ""}${if (kation1[1] == "1") "" else kation1[1]}"
-            val newSecondProduct = "${kation2[0]}${if (anion1[1] == "1") "" else anion1[1]}${if ((anion1[0]=="OH"||anion1[0]=="HS"
-                ||anion1[0]=="SO3"||anion1[0]=="HSO3"||anion1[0]=="SO4"||anion1[0]=="HSO4"
-                ||anion1[0]=="NO3"||anion1[0]=="NO2"||anion1[0]=="PO4"||anion1[0]=="HPO4"
-                ||anion1[0]=="H2PO4"||anion1[0]=="CO3"||anion1[0]=="HCO3"||anion1[0]=="CH3COO"
-                ||anion1[0]=="SiO3"||anion1[0]=="MnO4"||anion1[0]=="Cr2O7"||anion1[0]=="CrO4"
-                ||anion1[0]=="ClO3"||anion1[0]=="ClO4")&&kation2[1]!="1") "(" else ""}" +
-                    "${anion1[0]}${if ((anion1[0]=="OH"||anion1[0]=="HS"
-                ||anion1[0]=="SO3"||anion1[0]=="HSO3"||anion1[0]=="SO4"||anion1[0]=="HSO4"
-                ||anion1[0]=="NO3"||anion1[0]=="NO2"||anion1[0]=="PO4"||anion1[0]=="HPO4"
-                ||anion1[0]=="H2PO4"||anion1[0]=="CO3"||anion1[0]=="HCO3"||anion1[0]=="CH3COO"
-                ||anion1[0]=="SiO3"||anion1[0]=="MnO4"||anion1[0]=="Cr2O7"||anion1[0]=="CrO4"
-                ||anion1[0]=="ClO3"||anion1[0]=="ClO4")&&kation2[1]!="1") ")" else ""}${if (kation2[1] == "1") "" else kation2[1]}"
-
-            val ratio = "$"
-
-            println("$firstProduct + $secondProduct = ${if (newFirstProduct.contains("HOH")) "H2O" else newFirstProduct} + ${if (newSecondProduct.contains("HOH")) "H2O" else newSecondProduct}")
+    for (reaction in kations) {
+        when {
+            firstProduct.contains(reaction[0]) -> kation1.apply { this[0] = reaction[0]; this[1] = reaction[1] }
+            secondProduct.contains(reaction[0]) -> kation2.apply { this[0] = reaction[0]; this[1] = reaction[1] }
         }
     }
+
+    val firstProductAnion = firstProduct.replace(kation1[0], "")
+    val secondProductAnion = secondProduct.replace(kation2[0], "")
+
+    for (reaction in anions) {
+        when {
+            firstProductAnion.contains(reaction[0]) -> anion1.apply { this[0] = reaction[0]; this[1] = reaction[1] }
+            secondProductAnion.contains(reaction[0]) -> anion2.apply { this[0] = reaction[0]; this[1] = reaction[1] }
+        }
+    }
+
+    fun formatProduct(kation: Array<String>, anion: Array<String>): String {
+        val isPolyatomic = listOf("OH", "HS", "SO3", "HSO3", "SO4", "HSO4", "NO3", "NO2", "PO4", "HPO4",
+            "H2PO4", "CO3", "HCO3", "CH3COO", "SiO3", "MnO4", "Cr2O7", "CrO4",
+            "ClO3", "ClO4").contains(anion[0])
+
+        val kationCount = if (kation[1] == "1") "" else kation[1]
+        val anionCount = if (anion[1] == "1") "" else anion[1]
+        val openingBracket = if (isPolyatomic && kation[1] != "1") "(" else ""
+        val closingBracket = if (isPolyatomic && kation[1] != "1") ")" else ""
+
+        return "${kation[0]}$anionCount$openingBracket${anion[0]}$closingBracket$kationCount"
+    }
+
+    val newFirstProduct = formatProduct(kation1, anion2)
+    val newSecondProduct = formatProduct(kation2, anion1)
+
+    println("$firstProduct + $secondProduct = ${if (newFirstProduct.contains("HOH")) "H2O" else newFirstProduct} + ${if (newSecondProduct.contains("HOH")) "H2O" else newSecondProduct}")
 }
