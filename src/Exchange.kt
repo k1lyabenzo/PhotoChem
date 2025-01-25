@@ -95,37 +95,31 @@ fun main(firstProduct: String, secondProduct: String) {
 
         return "${kation[0]}$anionCount$openingBracket${anion[0]}$closingBracket$kationCount"
     }
-
     val newFirstProduct = formatProduct(kation1, anion2)
     val newSecondProduct = formatProduct(kation2, anion1)
 
-    var ratioKation1 = 1
-    var ratioKation2 = 1
-    var ratioAnion1 = 1
-    var ratioAnion2 = 1
-
-    when {
-        firstProduct[kation1[0].length].isDigit() -> ratioKation1=firstProduct[kation1[0].length].digitToInt()
-        secondProduct[kation2[0].length].isDigit() -> ratioKation2=secondProduct[kation2[0].length].digitToInt()
-        firstProduct[firstProduct.length-1].isDigit() -> ratioAnion1=firstProduct[firstProduct.length-1].digitToInt()
-        secondProduct[secondProduct.length-1].isDigit() -> ratioAnion2=secondProduct[secondProduct.length-1].digitToInt()
-    }
+    val ratioKation1 = anion1[1].toInt()
+    val ratioKation2 = anion2[1].toInt()
+    val ratioAnion1 = kation1[1].toInt()
+    val ratioAnion2 = kation2[1].toInt()
 
     var ratioFinalKation1 = 1
     var ratioFinalKation2 = 1
     var ratioFinalAnion1 = 1
     var ratioFinalAnion2 = 1
 
-    when {
-        newFirstProduct[kation1[0].length].isDigit() -> ratioFinalKation1=newFirstProduct[kation1[0].length].digitToInt()
-        newSecondProduct[kation2[0].length].isDigit() -> ratioFinalKation2=newSecondProduct[kation2[0].length].digitToInt()}
-    if (newFirstProduct.replace(kation1[0], "").replace(anion2[0], "").isNotEmpty()
-        && newFirstProduct[newFirstProduct.replace(kation1[0], "").replace(anion2[0], "").length-1].isDigit()) ratioFinalAnion1=newFirstProduct[newFirstProduct.replace(kation1[0], "").replace(anion2[0], "").length-1].digitToInt()
-    if (newSecondProduct.replace(kation2[0], "").replace(anion1[0], "").isNotEmpty()
-        && newSecondProduct[newSecondProduct.replace(kation2[0], "").replace(anion1[0], "").length-1].isDigit()) ratioFinalAnion2=newSecondProduct[newSecondProduct.replace(kation2[0], "").replace(anion1[0], "").length-1].digitToInt()
+    if(newFirstProduct[kation1[0].length].isDigit()) ratioFinalKation1=newFirstProduct[kation1[0].length].digitToInt()
+    if(newSecondProduct[kation2[0].length].isDigit()) ratioFinalKation2=newSecondProduct[kation2[0].length].digitToInt()
+    if (newFirstProduct.replace(anion1[1],"").replace(kation1[0], "").replace(anion2[0], "").isNotEmpty()
+        && newFirstProduct.replace(anion1[1],"").replace(kation1[0], "").replace(anion2[0], "")[newFirstProduct.replace(anion1[1],"").replace(kation1[0], "").replace(anion2[0], "").length-1].isDigit())
+        ratioFinalAnion1=newFirstProduct.replace(anion1[1],"").replace(kation1[0], "").replace(anion2[0], "")[newFirstProduct.replace(anion1[1],"").replace(kation1[0], "").replace(anion2[0], "").length-1].digitToInt()
+    if (newSecondProduct.replace(anion2[1],"").replace(kation2[0], "").replace(anion1[0], "").isNotEmpty()
+        && newSecondProduct.replace(anion2[1],"").replace(kation2[0], "").replace(anion1[0], "")[newSecondProduct.replace(anion2[1],"").replace(kation2[0], "").replace(anion1[0], "").length-1].isDigit())
+        ratioFinalAnion2=newSecondProduct.replace(anion2[1],"").replace(kation2[0], "").replace(anion1[0], "")[newSecondProduct.replace(anion2[1],"").replace(kation2[0], "").replace(anion1[0], "").length-1].digitToInt()
 
-    var finalReaction = "${if (ratioFinalKation2*ratioFinalAnion2!=1) ratioFinalKation2*ratioFinalAnion2 else ""}$firstProduct + ${if (ratioFinalKation1*ratioFinalAnion1!=1) ratioFinalKation1*ratioFinalAnion1 else ""}$secondProduct = ${if (ratioKation1*ratioAnion2!=1) ratioKation1*ratioAnion2 else ""}${if (newFirstProduct.contains("HOH")) "H2O" else newFirstProduct} + ${if (ratioKation2*ratioAnion1!=1) ratioKation2*ratioAnion1 else ""}${if (newSecondProduct.contains("HOH")) "H2O" else newSecondProduct}"
+    val finalReaction = "${if (ratioFinalKation1*ratioFinalAnion2!=1) ratioFinalKation1*ratioFinalAnion2 else ""}$firstProduct + ${if (ratioFinalKation2*ratioFinalAnion1!=1) ratioFinalKation2*ratioFinalAnion1 else ""}$secondProduct = ${if (ratioKation1*ratioAnion2!=1) ratioKation1*ratioAnion2 else ""}${if (newFirstProduct.contains("HOH")) "H2O" else newFirstProduct} + ${if (ratioKation2*ratioAnion1!=1) ratioKation2*ratioAnion1 else ""}${if (newSecondProduct.contains("HOH")) "H2O" else newSecondProduct}"
 
     println(finalReaction)
-    println(ratioFinalAnion1)
 }
+//Ca(NO3)2+
+//H3PO4
