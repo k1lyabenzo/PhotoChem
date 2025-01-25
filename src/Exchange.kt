@@ -48,7 +48,7 @@ val table = arrayOf(
     //Pb
     arrayOf("Pb(OH)2","H"), arrayOf("PbF2","H"), arrayOf("PbCl2","M"), arrayOf("PbBr2","M"), arrayOf("PbI2","H"), arrayOf("PbS","H"), arrayOf("Pb(HS)2","-"), arrayOf("PbSO3","H"), arrayOf("PbHSO3","-"), arrayOf("PbSO4","H"), arrayOf("Pb(HSO4)2","H"), arrayOf("Pb(NO3)2","P"), arrayOf("Pb(NO2)2","-"), arrayOf("Pb3(PO4)2","H"), arrayOf("PbHPO4","M"), arrayOf("Pb(H2PO4)2","-"), arrayOf("PbCO3","H"), arrayOf("Pb(HCO3)2","P"), arrayOf("Pb(CH3COO)2","P"), arrayOf("PbSiO3","H"), arrayOf("Pb(MnO4)2","-"), arrayOf("PbCr2O7","M"), arrayOf("PbCrO4","H"), arrayOf("Pb(ClO3)2","P"), arrayOf("Pb(ClO4)2","P"),
     //Sn
-    arrayOf("Sn(OH)2","H"), arrayOf("SnF2","P"), arrayOf("SnCl2","P"), arrayOf("SnBr2","P"), arrayOf("SnI2","M"), arrayOf("SnS","H"), arrayOf("Sn(HS)2","-"), arrayOf("SnSO3","-"), arrayOf("SnHSO3","-"), arrayOf("SnSO4","P"), arrayOf("Pb(HSO4)2","-"), arrayOf("Pb(NO3)2","-"), arrayOf("Pb(NO2)2","-"), arrayOf("Sn3(PO4)2","H"), arrayOf("SnHPO4","H"), arrayOf("Sn(H2PO4)2","-"), arrayOf("SnCO3","-"), arrayOf("Sn(HCO3)2","-"), arrayOf("Sn(CH3COO)2","-"), arrayOf("SnSiO3","-"), arrayOf("Sn(MnO4)2","-"), arrayOf("SnCr2O7","-"), arrayOf("SnCrO4","H"), arrayOf("Sn(ClO3)2","-"), arrayOf("Sn(ClO4)2","-"),
+    arrayOf("Sn(OH)2","H"), arrayOf("SnF2","P"), arrayOf("SnCl2","P"), arrayOf("SnBr2","P"), arrayOf("SnI2","M"), arrayOf("SnS","H"), arrayOf("Sn(HS)2","-"), arrayOf("SnSO3","-"), arrayOf("SnHSO3","-"), arrayOf("SnSO4","P"), arrayOf("Sn(HSO4)2","-"), arrayOf("Sn(NO3)2","-"), arrayOf("Pb(NO2)2","-"), arrayOf("Sn3(PO4)2","H"), arrayOf("SnHPO4","H"), arrayOf("Sn(H2PO4)2","-"), arrayOf("SnCO3","-"), arrayOf("Sn(HCO3)2","-"), arrayOf("Sn(CH3COO)2","-"), arrayOf("SnSiO3","-"), arrayOf("Sn(MnO4)2","-"), arrayOf("SnCr2O7","-"), arrayOf("SnCrO4","H"), arrayOf("Sn(ClO3)2","-"), arrayOf("Sn(ClO4)2","-"),
     //Cu
     arrayOf("Cu(OH)2","H"), arrayOf("CuF2","P"), arrayOf("CuCl2","P"), arrayOf("CuBr2","P"), arrayOf("CuI2","-"), arrayOf("CuS","H"), arrayOf("Cu(HS)2","-"), arrayOf("CuSO3","-"), arrayOf("CuHSO3","-"), arrayOf("CuSO4","P"), arrayOf("Cu(HSO4)2","-"), arrayOf("Cu(NO3)2","P"), arrayOf("Cu(NO2)2","-"), arrayOf("Cu3(PO4)2","H"), arrayOf("CuHPO4","-"), arrayOf("Cu(H2PO4)2","-"), arrayOf("CuCO3","H"), arrayOf("Cu(HCO3)2","-"), arrayOf("Cu(CH3COO)2","P"), arrayOf("CuSiO3","-"), arrayOf("Cu(MnO4)2","-"), arrayOf("CuCr2O7","P"), arrayOf("CuCrO4","H"), arrayOf("Cu(ClO3)2","P"), arrayOf("Cu(ClO4)2","P"),
     //Al
@@ -89,6 +89,7 @@ fun main(firstProduct: String, secondProduct: String) {
 
         val kationCount = if (kation[1] == "1") "" else kation[1]
         val anionCount = if (anion[1] == "1") "" else anion[1]
+        if (kationCount==anionCount) return "${kation[0]}${anion[0]}"
         val openingBracket = if (isPolyatomic && kation[1] != "1") "(" else ""
         val closingBracket = if (isPolyatomic && kation[1] != "1") ")" else ""
 
@@ -98,5 +99,33 @@ fun main(firstProduct: String, secondProduct: String) {
     val newFirstProduct = formatProduct(kation1, anion2)
     val newSecondProduct = formatProduct(kation2, anion1)
 
-    println("$firstProduct + $secondProduct = ${if (newFirstProduct.contains("HOH")) "H2O" else newFirstProduct} + ${if (newSecondProduct.contains("HOH")) "H2O" else newSecondProduct}")
+    var ratioKation1 = 1
+    var ratioKation2 = 1
+    var ratioAnion1 = 1
+    var ratioAnion2 = 1
+
+    when {
+        firstProduct[kation1[0].length].isDigit() -> ratioKation1=firstProduct[kation1[0].length].digitToInt()
+        secondProduct[kation2[0].length].isDigit() -> ratioKation2=secondProduct[kation2[0].length].digitToInt()
+        firstProduct[firstProduct.length-1].isDigit() -> ratioAnion1=firstProduct[firstProduct.length-1].digitToInt()
+        secondProduct[secondProduct.length-1].isDigit() -> ratioAnion2=secondProduct[secondProduct.length-1].digitToInt()
+    }
+
+    var ratioFinalKation1 = 1
+    var ratioFinalKation2 = 1
+    var ratioFinalAnion1 = 1
+    var ratioFinalAnion2 = 1
+
+    when {
+        newFirstProduct[kation1[0].length].isDigit() -> ratioFinalKation1=newFirstProduct[kation1[0].length].digitToInt()
+        newSecondProduct[kation2[0].length].isDigit() -> ratioFinalKation2=newSecondProduct[kation2[0].length].digitToInt()}
+    if (newFirstProduct.replace(kation1[0], "").replace(anion2[0], "").isNotEmpty()
+        && newFirstProduct[newFirstProduct.replace(kation1[0], "").replace(anion2[0], "").length-1].isDigit()) ratioFinalAnion1=newFirstProduct[newFirstProduct.replace(kation1[0], "").replace(anion2[0], "").length-1].digitToInt()
+    if (newSecondProduct.replace(kation2[0], "").replace(anion1[0], "").isNotEmpty()
+        && newSecondProduct[newSecondProduct.replace(kation2[0], "").replace(anion1[0], "").length-1].isDigit()) ratioFinalAnion2=newSecondProduct[newSecondProduct.replace(kation2[0], "").replace(anion1[0], "").length-1].digitToInt()
+
+    var finalReaction = "${if (ratioFinalKation2*ratioFinalAnion2!=1) ratioFinalKation2*ratioFinalAnion2 else ""}$firstProduct + ${if (ratioFinalKation1*ratioFinalAnion1!=1) ratioFinalKation1*ratioFinalAnion1 else ""}$secondProduct = ${if (ratioKation1*ratioAnion2!=1) ratioKation1*ratioAnion2 else ""}${if (newFirstProduct.contains("HOH")) "H2O" else newFirstProduct} + ${if (ratioKation2*ratioAnion1!=1) ratioKation2*ratioAnion1 else ""}${if (newSecondProduct.contains("HOH")) "H2O" else newSecondProduct}"
+
+    println(finalReaction)
+    println(ratioFinalAnion1)
 }
