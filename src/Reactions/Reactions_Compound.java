@@ -237,13 +237,13 @@ public class Reactions_Compound {
         {"Mg", "I", "Mg+I2=MgI2"},//9
     };
     public static final String[][] reaction_compound_Al = {
-            {"Al", "Si", "4Al+3Si=Al4Si3/Al+Si=AlSi/2Al+Si=Al2Si/Al+3Si=AlSi3"},//1
-            {"Al","P", "Al+P=AlP"},//2
-            {"Al", "S", "2Al+3S=Al2S3"},//3
-            {"Al", "Cl", "2Al+3Cl2=2AlCl3"},//4
-            {"Al", "Cu", "Al+Cu=CuAl"},//5
-            {"Al", "Se", "2Al+3Se=Al2Se3"},//6
-            {"Al", "Br2", "2Al+3Br2=2AlBr3"},//7
-            {"Al", "I", "2Al+3I2=2AlI3"},//8
+        {"Al", "Si", "4Al+3Si=Al4Si3/Al+Si=AlSi/2Al+Si=Al2Si/Al+3Si=AlSi3"},//1
+        {"Al","P", "Al+P=AlP"},//2
+        {"Al", "S", "2Al+3S=Al2S3"},//3
+        {"Al", "Cl", "2Al+3Cl2=2AlCl3"},//4
+        {"Al", "Cu", "Al+Cu=CuAl"},//5
+        {"Al", "Se", "2Al+3Se=Al2Se3"},//6
+        {"Al", "Br2", "2Al+3Br2=2AlBr3"},//7
+        {"Al", "I", "2Al+3I2=2AlI3"},//8
     };
 }
