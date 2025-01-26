@@ -117,9 +117,10 @@ fun main(firstProduct: String, secondProduct: String) {
         && newSecondProduct.replace(anion2[1],"").replace(kation2[0], "").replace(anion1[0], "")[newSecondProduct.replace(anion2[1],"").replace(kation2[0], "").replace(anion1[0], "").length-1].isDigit())
         ratioFinalAnion2=newSecondProduct.replace(anion2[1],"").replace(kation2[0], "").replace(anion1[0], "")[newSecondProduct.replace(anion2[1],"").replace(kation2[0], "").replace(anion1[0], "").length-1].digitToInt()
 
-    val finalReaction = "${if (ratioFinalKation1*ratioFinalAnion2!=1) ratioFinalKation1*ratioFinalAnion2 else ""}$firstProduct + ${if (ratioFinalKation2*ratioFinalAnion1!=1) ratioFinalKation2*ratioFinalAnion1 else ""}$secondProduct = ${if (ratioKation1*ratioAnion2!=1) ratioKation1*ratioAnion2 else ""}${if (newFirstProduct.contains("HOH")) "H2O" else newFirstProduct} + ${if (ratioKation2*ratioAnion1!=1) ratioKation2*ratioAnion1 else ""}${if (newSecondProduct.contains("HOH")) "H2O" else newSecondProduct}"
+    val finalReaction = "${if (ratioFinalKation1==ratioFinalAnion2) ratioFinalKation1 else ratioFinalKation1*ratioFinalAnion2}$firstProduct + ${if (ratioFinalKation2==ratioFinalAnion1) ratioFinalKation2 else ratioFinalKation2*ratioFinalAnion1}$secondProduct = ${if (ratioKation1==ratioAnion2) ratioKation1 else ratioKation1*ratioAnion2}${if (newFirstProduct.contains("HOH")) "H2O" else newFirstProduct} + ${if (ratioKation2==ratioAnion1) ratioKation2 else ratioKation2*ratioAnion1}${if (newSecondProduct.contains("HOH")) "H2O" else newSecondProduct}".replace("1", "")
 
-    println(finalReaction)
+    val nfpp = table.any { newFirstProduct.contains(it[0]) && it[1] == "P" }
+    val nspp = table.any { newSecondProduct.contains(it[0]) && it[1] == "P" }
+
+    if ((nfpp && nspp)||(nfpp)||(nspp)) println(finalReaction)
 }
-//Ca(NO3)2+
-//H3PO4
