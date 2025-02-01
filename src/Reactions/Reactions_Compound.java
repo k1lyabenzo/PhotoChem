@@ -167,7 +167,7 @@ public class Reactions_Compound {
         {"O2", "Sn", "O2+Sn=SnO2/O2+2Sn=2SnO"},//35
         {"O2", "Sb", "3O2+4Sb=Sb4O6/3O2+4Sb=2Sb2O3/5O2+4Sb=2Sb2O5"},//36
         {"O2", "Te", "O2+Te=TeO2"},//37
-        {"O2", "I", "7O2+2I2=2I2O7/5O2+2I2=2I2O5/O2+I2=2IO/O2+2I2=2I2O"},//38
+        {"O2", "I2", "7O2+2I2=2I2O7/5O2+2I2=2I2O5/O2+I2=2IO/O2+2I2=2I2O"},//38
         {"O2", "Cs", "O2+4Cs=2Cs2O/O2+Cs=CsO2/O2+2Cs=Cs2O2/O2+2Cs=2CsO/3O2+22Cs=2Cs11O3"},//39
         {"O2", "Ba", "O2+2Ba=2BaO"},//40
         {"O2", "La", "3O2+4La=2La2O3"},//41
@@ -204,7 +204,7 @@ public class Reactions_Compound {
         {"F2", "Mo", "3F2+Mo=MoF6/F2+2Mo=2MoF"},//20
         {"F2", "Ag", "F2+2Ag=2AgF"},//21
         {"F2", "Sn", "2F2+Sn=SnF4"},//22
-        {"F2", "I", "7F2+I2=2IF7/F2+I2=2IF/5F2+I2=2IF5"},//23
+        {"F2", "I2", "7F2+I2=2IF7/F2+I2=2IF/5F2+I2=2IF5"},//23
         {"F2", "Xe", "3F2+Xe=XeF6/2F2+Xe=XeF4/F2+Xe=XeF2"},//24
         {"F2", "Cs", "F2+2Cs=2CsF"},//25
         {"F2", "Ba", "F2+2Ba=2BaF"},//26
@@ -223,7 +223,7 @@ public class Reactions_Compound {
         {"Na", "As", "3Na+As=Na3As/Na+As=NaAs"},//7
         {"Na", "Se", "2Na+Se=Na2Se"},//8
         {"Na", "Br2", "2Na+Br2=2NaBr"},//9
-        {"Na", "I", "2Na+I2=2NaI"},//10
+        {"Na", "I2", "2Na+I2=2NaI"},//10
     };
     public static final String[][] reaction_compound_Mg = {
         {"Mg", "Al", "Mg+Al=MgAl/Mg+Al=AlMg"},//1
@@ -234,7 +234,7 @@ public class Reactions_Compound {
         {"Mg", "Ca", "6Mg+2Ca=Mg6Ca2"},//6
         {"Mg", "As", "Mg+As=MgAs"},//7
         {"Mg", "Br2", "Mg+Br2=MgBr2"},//8
-        {"Mg", "I", "Mg+I2=MgI2"},//9
+        {"Mg", "I2", "Mg+I2=MgI2"},//9
     };
     public static final String[][] reaction_compound_Al = {
         {"Al", "Si", "4Al+3Si=Al4Si3/Al+Si=AlSi/2Al+Si=Al2Si/Al+3Si=AlSi3"},//1
@@ -244,6 +244,41 @@ public class Reactions_Compound {
         {"Al", "Cu", "Al+Cu=CuAl"},//5
         {"Al", "Se", "2Al+3Se=Al2Se3"},//6
         {"Al", "Br2", "2Al+3Br2=2AlBr3"},//7
-        {"Al", "I", "2Al+3I2=2AlI3"},//8
+        {"Al", "I2", "2Al+3I2=2AlI3"},//8
+    };
+    public static final String[][] reaction_compound_Si = {
+            {"Si", "P", "3Si+2P=P2Si3"},//1
+            {"Si", "S", "Si+2S=SiS2"},//2
+            {"Si", "Cl", "Si+2Cl2=SiCl4"},//3
+            {"Si", "K", "Si+K=KSi/Si+4K=K4Si"},//4
+            {"Si", "Ca", "Si+2Ca=Ca2Si"},//5
+            {"Si", "Fe", "Si+3Fe=Fe3Si"},//6
+            {"Si", "Ni", "2Si+Ni=NiSi2/Si+Ni=NiSi"},//7
+            {"Si", "Zn", "Si+Zn=ZnSi"},//8
+            {"Si", "Se", "Si+Se=SeSi"},//9
+            {"Si", "Br2", "Si+2Br2=SiBr4/2Si+Br2=2SiBr/Si+Br2=SiBr2"},//10
+            {"Si", "I2", "Si+2I2=SiI4"},//11
+            {"Si", "Cs", "Si+4Cs=Cs4Si"},//12
+            {"Si", "Ba", "Si+Ba=BaSi/Si+2Ba=Ba2Si"},//13
+            {"Si", "Hg", "Si+Hg=HgSi"},//14
+    };
+    public static final String[][] reaction_compound_P = {
+            {"P", "S", "2P+3S=P2S3/P+S=PS/2P+5S=P2S5"},//1
+            {"P", "Cl", "2P+5Cl2=2PCl5"},//2
+            {"P", "K", "P+K=KP/P+3K=K3P"},//3
+            {"P", "Ca", "2P+3Ca=Ca3P2"},//4
+            {"P", "V", "5P+3V=V3P5"},//5
+            {"P", "Cr", "P+Cr=CrP"},//6
+            {"P", "Mn", "2P+Mn=MnP2"},//7
+            {"P", "Fe", "P+3Fe=Fe3P/P+Fe=FeP/2P+3Fe=Fe3P2"},//8
+            {"P", "Cu", "2P+3Cu=Cu3P2/P+Cu=CuP/2P+Cu=CuP2/P+3Cu=Cu3P/P+Cu=PCu"},//9
+            {"P", "Zn", "2P+3Zn=Zn3P2/P+Zn=ZnP/2P+Zn=ZnP2"},//10
+            {"P", "Br2", "2P+3Br2=2PBr3/2P+5Br2=2PBr5/2P+Br2=2PBr"},//11
+            {"P", "Rb", "P+3Rb=Rb3P"},//12
+            {"P", "Sr", "P+Sr=SrP/2P+3Sr=Sr3P2"},//13
+            {"P", "I2", "2P+3I2=2PI3"},//14
+            {"P", "Cs", "P+3Cs=Cs3P"},//15
+            {"P", "Ba", "P+Ba=BaP/2P+3Ba=Ba3P2"},//16
+            {"P", "Hg", "2P+3Hg=Hg3P2"},//17
     };
 }
