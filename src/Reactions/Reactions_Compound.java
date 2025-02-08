@@ -331,4 +331,16 @@ public class Reactions_Compound {
             {"Cl2", "Hg", "Cl2+2Hg=Hg2Cl2"},//22
             {"Cl2", "Pb", "2Cl2+Pb=PbCl4"},//23
     };
+    public static final String[][] reaction_compound_K = {
+            {"K", "Fe", "K+Fe=FeK/K+Fe=KFe"},//1
+            {"K", "Zn", "K+Zn=ZnK"},//2
+            {"K", "Br2", "2K+Br2=2KBr"},//3
+            {"K", "I2", "2K+I2=2KI"},//4
+    };
+    public static final String[][] reaction_compound_Ca = {
+            {"Ca", "Co", "Ca+Co=CaCo"},//1
+            {"Ca", "Br2", "Ca+Br2=CaBr2"},//2
+            {"Ca", "I2", "Ca+I2=CaI2"},//3
+    };
+
 }
