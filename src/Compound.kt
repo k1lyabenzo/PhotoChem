@@ -20,7 +20,16 @@ private fun getReactionResult(product1: String, product2: String): String? {
         Reactions_Compound.reaction_compound_C,
         Reactions_Compound.reaction_compound_N,
         Reactions_Compound.reaction_compound_O,
-        Reactions_Compound.reaction_compound_F
+        Reactions_Compound.reaction_compound_F,
+        Reactions_Compound.reaction_compound_Na,
+        Reactions_Compound.reaction_compound_Mg,
+        Reactions_Compound.reaction_compound_Al,
+        Reactions_Compound.reaction_compound_Si,
+        Reactions_Compound.reaction_compound_P,
+        Reactions_Compound.reaction_compound_S,
+        Reactions_Compound.reaction_compound_Cl,
+        Reactions_Compound.reaction_compound_K,
+        Reactions_Compound.reaction_compound_Ca
     )
     for (reactions in allReactions) for (reaction in reactions)
         if ((reaction[0] == product1 && reaction[1] == product2) || (reaction[0] == product2 && reaction[1] == product1)) return reaction[2]
