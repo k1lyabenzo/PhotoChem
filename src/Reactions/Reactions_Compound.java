@@ -12,7 +12,6 @@ public class Reactions_Compound {
         {"H2", "Na", "H2+2Na=2NaH"},//8
         {"H2", "Mg", "H2+Mg=MgH2/H2+2Mg=2MgH/H2+Mg=H2Mg/H2+4Mg=2Mg2H/H2+2Mg=Mg2H2/3H2+2Mg=2MgH3"},//9
         {"H2", "Al", "3H2+2Al=2AlH3/H2+2Al=2AlH/H2+Al=AlH2"},//10
-        {"H2", "Si", "2H2+Si=SiH4"},//11
         {"H2", "P", "3H2+P=2PH3/H2+2P=2HP"},//12
         {"H2", "S", "H2+S=H2S"},//13
         {"H2", "Cl2", "H2+Cl2=2HCl"},//14
@@ -341,6 +340,42 @@ public class Reactions_Compound {
             {"Ca", "Co", "Ca+Co=CaCo"},//1
             {"Ca", "Br2", "Ca+Br2=CaBr2"},//2
             {"Ca", "I2", "Ca+I2=CaI2"},//3
+    };
+    public static final String[][] reaction_compound_Ti = {
+            {"Ti", "2I2", "Ti+I2=TiI4"},//1
+    };
+    public static final String[][] reaction_compound_V = {
+            {"V", "I2", "2V+3I2=2VI3"},//1
+    };
+    public static final String[][] reaction_compound_Cr = {
+            {"Cr", "Br2", "2Cr+3Br2=2CrBr3"},//1
+            {"Cr", "I2", "Cr+2I2=CrI4/Cr+I2=CrI2"},//2
+    };
+    public static final String[][] reaction_compound_Fe = {
+            {"Fe", "Cu", "Fe+Cu=FeCu/Fe+Cu=CuFe"},//1
+            {"Fe", "Zn", "2Fe+Zn=ZnFe2/Fe+Zn=FeZn/6Fe+4Zn=Zn4Fe6/Fe+Zn=ZnFe"},//2
+            {"Fe", "Se", "Fe+Se=FeSe"},//3
+            {"Fe", "Br2", "Fe+Br2=FeBr2/2Fe+3Br2=2FeBr3"},//4
+            {"Fe", "I2", "Fe+I2=FeI2/2Fe+3I2=2FeI3/3Fe+4I2=Fe3I8/Fe+4I2=FeI8"},//5
+    };
+    public static final String[][] reaction_compound_Co = {
+            {"Co", "Br2", "2Co+Br2=2CoBr/Co+Br2=CoBr2/2Co+3Br2=2CoBr3"},//1
+    };
+    public static final String[][] reaction_compound_Ni = {
+            {"Ni", "Br2", "Ni+Br2=NiBr2"},//1
+            {"Ni", "I2", "Ni+I2=NiI2"},//2
+    };
+    public static final String[][] reaction_compound_Cu = {
+            {"Cu", "I2", "2Cu+I2=2CuI/Cu+I2=CuI2"},//1
+            {"Cu", "Br2", "Cu+Br2=CuBr2"},//2
+            {"Cu", "Zn", "2Cu+Zn=Cu2Zn/Cu+Zn=ZnCu/Cu+Zn=CuZn"},//3
+            {"Cu", "Se", "2Cu+Se=Cu2Se"},//4
+            {"Cu", "Ag", "Cu+Ag=AgCu"},//5
+            {"Cu", "Au", "3Cu+Au=Cu3Au"},//6
+    };
+    public static final String[][] reaction_compound_Zn = {
+            {"Zn", "Br2", "Zn+Br2=ZnBr2"},//1
+            {"Zn", "I2", "Zn+I2=ZnI2"},//2
     };
 
 }
