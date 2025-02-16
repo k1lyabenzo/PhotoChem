@@ -64,17 +64,15 @@ fun main(firstProduct: String, secondProduct: String) {
     val anion2 = arrayOf("", "")
     val kation1 = arrayOf("", "")
     val kation2 = arrayOf("", "")
-    var i = 0
+
     for (reaction in kations) {
         if(firstProduct.contains(reaction[0])&&(kation1[0])=="") kation1.apply {this[0] = reaction[0]; this[1] = reaction[1]}
-        println(i)
         if(secondProduct.contains(reaction[0])&&(kation2[0])=="") kation2.apply { this[0] = reaction[0]; this[1] = reaction[1] }
     }
 
     val firstProductAnion = firstProduct.replace(kation1[0], "")
     val secondProductAnion = secondProduct.replace(kation2[0], "")
-    println(kation2[0])
-    println(secondProductAnion)
+
     for (reaction in anions) {
         if(firstProductAnion.contains(reaction[0])&&(anion1[0])=="") anion1.apply {this[0] = reaction[0]; this[1] = reaction[1]}
         if(secondProductAnion.contains(reaction[0])&&(anion2[0])=="") anion2.apply { this[0] = reaction[0]; this[1] = reaction[1]}
