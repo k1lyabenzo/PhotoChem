@@ -15,6 +15,16 @@ private val kations = arrayOf(
     arrayOf("Zn", "2"), arrayOf("Hg", "2"), arrayOf("Pb", "2"), arrayOf("Sn", "2"),
     arrayOf("Cu", "2"), arrayOf("Al", "3"), arrayOf("Fe", "3"), arrayOf("Cr", "3")
 )
+private val kations_low = arrayOf(
+    arrayOf("Li", "1"), arrayOf("Na", "1"), arrayOf("Ag", "1"),
+    arrayOf("Ba", "2"), arrayOf("Ca", "2"), arrayOf("Mg", "2"), arrayOf("Sr", "2"),
+    arrayOf("Fe", "2"), arrayOf("Mn", "2"), arrayOf("Zn", "2"), arrayOf("Hg", "2"),
+    arrayOf("Pb", "2"), arrayOf("Sn", "2"), arrayOf("Cu", "2"), arrayOf("Al", "3"),
+    arrayOf("Fe", "3"), arrayOf("Cr", "3")
+)
+private val kations_high = arrayOf(
+    arrayOf("H", "1"), arrayOf("K", "1"), arrayOf("NH4", "1")
+)
 
 val table = arrayOf(
     //H
@@ -64,18 +74,47 @@ fun main(firstProduct: String, secondProduct: String) {
     val anion2 = arrayOf("", "")
     val kation1 = arrayOf("", "")
     val kation2 = arrayOf("", "")
-
-    for (reaction in kations) {
-        if(firstProduct.contains(reaction[0])&&(kation1[0])=="") kation1.apply {this[0] = reaction[0]; this[1] = reaction[1]}
-        if(secondProduct.contains(reaction[0])&&(kation2[0])=="") kation2.apply { this[0] = reaction[0]; this[1] = reaction[1] }
+    if (firstProduct[1].isUpperCase() or firstProduct[1].isDigit()){
+        for (reaction in kations_high) {
+            if (firstProduct.contains(reaction[0]) && (kation1[0]) == "") kation1.apply { this[0] = reaction[0]; this[1] = reaction[1] }
+        }
+    } else {
+        for (reaction in kations_low) {
+            if (firstProduct.contains(reaction[0]) && (kation1[0]) == "") kation1.apply { this[0] = reaction[0]; this[1] = reaction[1] }
+        }
+    }
+    if(secondProduct[1].isUpperCase() or secondProduct[1].isDigit()){
+        for (reaction in kations_high){
+            if (secondProduct.contains(reaction[0]) && (kation2[0]) == "") kation2.apply { this[0] = reaction[0]; this[1] = reaction[1]}
+        }
+    } else {
+        for (reaction in kations_low){
+            if (secondProduct.contains(reaction[0]) && (kation2[0]) == "") kation2.apply { this[0] = reaction[0]; this[1] = reaction[1]}
+        }
     }
 
-    val firstProductAnion = firstProduct.replace(kation1[0], "")
-    val secondProductAnion = secondProduct.replace(kation2[0], "")
+    var firstProductAnion = firstProduct.replace(kation1[0], "")
+    var secondProductAnion = secondProduct.replace(kation2[0], "")
 
+    if (firstProductAnion[0].isDigit()) firstProductAnion=firstProductAnion.substring(1)
+    if (!firstProductAnion[0].isLetter()) {
+        firstProductAnion=firstProductAnion.substring(1)
+        anion1[0]=firstProductAnion.removeRange(firstProductAnion.length-2,firstProductAnion.length)
+    } else {
+        anion1[0] = firstProductAnion
+    }
+
+
+    if (secondProductAnion[0].isDigit()) secondProductAnion=secondProductAnion.substring(1)
+    if (!secondProductAnion[0].isLetter()) {
+        secondProductAnion=secondProductAnion.substring(1)
+        anion2[0]=secondProductAnion.removeRange(secondProductAnion.length-2,secondProductAnion.length)
+    } else {
+        anion2[0] = secondProductAnion
+    }
     for (reaction in anions) {
-        if(firstProductAnion.contains(reaction[0])&&(anion1[0])=="") anion1.apply {this[0] = reaction[0]; this[1] = reaction[1]}
-        if(secondProductAnion.contains(reaction[0])&&(anion2[0])=="") anion2.apply { this[0] = reaction[0]; this[1] = reaction[1]}
+        if(anion1.contains(reaction[0])) anion1.apply {this[0] = reaction[0]; this[1] = reaction[1]}
+        if(anion2.contains(reaction[0])) anion2.apply { this[0] = reaction[0]; this[1] = reaction[1]}
     }
 
     fun formatProduct(kation: Array<String>, anion: Array<String>): String {
