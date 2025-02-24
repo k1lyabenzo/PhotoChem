@@ -1,3 +1,5 @@
+import kotlin.system.exitProcess
+
 private val anions = arrayOf(
     arrayOf("OH", "1"), arrayOf("F", "1"), arrayOf("Cl", "1"), arrayOf("Br", "1"),
     arrayOf("I", "1"), arrayOf("S", "2"), arrayOf("HS", "1"), arrayOf("SO3", "2"),
@@ -70,66 +72,11 @@ val table = arrayOf(
 )
 
 fun main(firstProduct: String, secondProduct: String) {
-    val anion1 = arrayOf("", "")
-    val anion2 = arrayOf("", "")
-    val kation1 = arrayOf("", "")
-    val kation2 = arrayOf("", "")
-    if (firstProduct[1].isUpperCase() or firstProduct[1].isDigit()){
-        for (reaction in kations_high) {
-            if (firstProduct.contains(reaction[0]) && (kation1[0]) == "") kation1.apply { this[0] = reaction[0]; this[1] = reaction[1] }
-        }
-    } else {
-        for (reaction in kations_low) {
-            if (firstProduct.contains(reaction[0]) && (kation1[0]) == "") kation1.apply { this[0] = reaction[0]; this[1] = reaction[1] }
-        }
-    }
-    if(secondProduct[1].isUpperCase() or secondProduct[1].isDigit()){
-        for (reaction in kations_high){
-            if (secondProduct.contains(reaction[0]) && (kation2[0]) == "") kation2.apply { this[0] = reaction[0]; this[1] = reaction[1]}
-        }
-    } else {
-        for (reaction in kations_low){
-            if (secondProduct.contains(reaction[0]) && (kation2[0]) == "") kation2.apply { this[0] = reaction[0]; this[1] = reaction[1]}
-        }
-    }
+    val kation1 = findKation(firstProduct)
+    val kation2 = findKation(secondProduct)
+    val anion1 = findAnion(firstProduct.replace(kation1[0], ""))
+    val anion2 = findAnion(secondProduct.replace(kation2[0], ""))
 
-    var firstProductAnion = firstProduct.replace(kation1[0], "")
-    var secondProductAnion = secondProduct.replace(kation2[0], "")
-
-    if (firstProductAnion[0].isDigit()) firstProductAnion=firstProductAnion.substring(1)
-    if (!firstProductAnion[0].isLetter()) {
-        firstProductAnion=firstProductAnion.substring(1)
-        anion1[0]=firstProductAnion.removeRange(firstProductAnion.length-2,firstProductAnion.length)
-    } else {
-        anion1[0] = firstProductAnion
-    }
-
-
-    if (secondProductAnion[0].isDigit()) secondProductAnion=secondProductAnion.substring(1)
-    if (!secondProductAnion[0].isLetter()) {
-        secondProductAnion=secondProductAnion.substring(1)
-        anion2[0]=secondProductAnion.removeRange(secondProductAnion.length-2,secondProductAnion.length)
-    } else {
-        anion2[0] = secondProductAnion
-    }
-    for (reaction in anions) {
-        if(anion1.contains(reaction[0])) anion1.apply {this[0] = reaction[0]; this[1] = reaction[1]}
-        if(anion2.contains(reaction[0])) anion2.apply { this[0] = reaction[0]; this[1] = reaction[1]}
-    }
-
-    fun formatProduct(kation: Array<String>, anion: Array<String>): String {
-        val isPolyatomic = listOf("OH", "HS", "SO3", "HSO3", "SO4", "HSO4", "NO3", "NO2", "PO4", "HPO4",
-            "H2PO4", "CO3", "HCO3", "CH3COO", "SiO3", "MnO4", "Cr2O7", "CrO4",
-            "ClO3", "ClO4").contains(anion[0])
-
-        val kationCount = if (kation[1] == "1") "" else kation[1]
-        val anionCount = if (anion[1] == "1") "" else anion[1]
-        if (kationCount==anionCount) return "${kation[0]}${anion[0]}"
-        val openingBracket = if (isPolyatomic && kation[1] != "1") "(" else ""
-        val closingBracket = if (isPolyatomic && kation[1] != "1") ")" else ""
-
-        return "${kation[0]}$anionCount$openingBracket${anion[0]}$closingBracket$kationCount"
-    }
     val newFirstProduct = formatProduct(kation1, anion2)
     val newSecondProduct = formatProduct(kation2, anion1)
 
@@ -138,24 +85,66 @@ fun main(firstProduct: String, secondProduct: String) {
     val ratioAnion1 = kation1[1].toInt()
     val ratioAnion2 = kation2[1].toInt()
 
-    var ratioFinalKation1 = 1
-    var ratioFinalKation2 = 1
-    var ratioFinalAnion1 = 1
-    var ratioFinalAnion2 = 1
+    val ratioFinalKation1 = extractRatio(newFirstProduct, kation1[0])
+    val ratioFinalKation2 = extractRatio(newSecondProduct, kation2[0])
+    val ratioFinalAnion1 = extractAnionRatio(newFirstProduct, anion1[0])
+    val ratioFinalAnion2 = extractAnionRatio(newSecondProduct, anion2[0])
 
-    if(newFirstProduct[kation1[0].length].isDigit()) ratioFinalKation1=newFirstProduct[kation1[0].length].digitToInt()
-    if(newSecondProduct[kation2[0].length].isDigit()) ratioFinalKation2=newSecondProduct[kation2[0].length].digitToInt()
-    if (newFirstProduct.replace(anion1[1],"").replace(kation1[0], "").replace(anion2[0], "").isNotEmpty()
-        && newFirstProduct.replace(anion1[1],"").replace(kation1[0], "").replace(anion2[0], "")[newFirstProduct.replace(anion1[1],"").replace(kation1[0], "").replace(anion2[0], "").length-1].isDigit())
-        ratioFinalAnion1=newFirstProduct.replace(anion1[1],"").replace(kation1[0], "").replace(anion2[0], "")[newFirstProduct.replace(anion1[1],"").replace(kation1[0], "").replace(anion2[0], "").length-1].digitToInt()
-    if (newSecondProduct.replace(anion2[1],"").replace(kation2[0], "").replace(anion1[0], "").isNotEmpty()
-        && newSecondProduct.replace(anion2[1],"").replace(kation2[0], "").replace(anion1[0], "")[newSecondProduct.replace(anion2[1],"").replace(kation2[0], "").replace(anion1[0], "").length-1].isDigit())
-        ratioFinalAnion2=newSecondProduct.replace(anion2[1],"").replace(kation2[0], "").replace(anion1[0], "")[newSecondProduct.replace(anion2[1],"").replace(kation2[0], "").replace(anion1[0], "").length-1].digitToInt()
+    val finalReaction = buildString {
+        append("${lcm(ratioFinalKation1, ratioFinalAnion2)}$firstProduct + ")
+        append("${lcm(ratioFinalKation2, ratioFinalAnion1)}$secondProduct = ")
+        append("${lcm(ratioKation1, ratioAnion2)}${formatWaterOrProduct(newFirstProduct)} + ")
+        append("${lcm(ratioKation2, ratioAnion1)}${formatWaterOrProduct(newSecondProduct)}")
+    }.replace("1", "")
+    if (finalReaction.contains("H2O")){
+        println("Потом")
+        exitProcess(0)
+    }
 
-    val finalReaction = "${if (ratioFinalKation1==ratioFinalAnion2) ratioFinalKation1 else ratioFinalKation1*ratioFinalAnion2}$firstProduct + ${if (ratioFinalKation2==ratioFinalAnion1) ratioFinalKation2 else ratioFinalKation2*ratioFinalAnion1}$secondProduct = ${if (ratioKation1==ratioAnion2) ratioKation1 else ratioKation1*ratioAnion2}${if (newFirstProduct.contains("HOH")) "H2O" else newFirstProduct} + ${if (ratioKation2==ratioAnion1) ratioKation2 else ratioKation2*ratioAnion1}${if (newSecondProduct.contains("HOH")) "H2O" else newSecondProduct}".replace("1", "")
-
-    val newFirstProductP = table.any { newFirstProduct.contains(it[0]) && it[1] == "P" }
-    val newSecondProductP = table.any { newSecondProduct.contains(it[0]) && it[1] == "P" }
-
-    if ((newFirstProductP && newSecondProductP)||(newFirstProductP)||(newSecondProductP)) println(finalReaction)
+    if (isProductPrecipitate(newFirstProduct) || isProductPrecipitate(newSecondProduct)) {
+        println(finalReaction)
+    }
 }
+
+// Вспомогательные функции
+fun findKation(product: String): Array<String> {
+    val list = if (product[1].isUpperCase() || product[1].isDigit()) kations_high else kations_low
+    return list.first { product.contains(it[0]) }
+}
+
+fun findAnion(product: String): Array<String> {
+    var anion = product
+    if (anion[0].isDigit()) anion = anion.substring(1)
+    if (!anion[0].isLetter()) anion = anion.removeRange(anion.length - 2, anion.length)
+    else if (anion.matches(Regex(".*[OHFISBrHS]")) && anion.last().isDigit()) {
+        anion = anion.dropLast(1)
+    }
+    return anions.first { anion.contains(it[0]) }
+}
+
+fun formatProduct(kation: Array<String>, anion: Array<String>): String {
+    val isPolyatomic = listOf("OH", "HS", "SO3", "HSO3", "SO4", "HSO4", "NO3", "NO2", "PO4", "HPO4",
+        "H2PO4", "CO3", "HCO3", "CH3COO", "SiO3", "MnO4", "Cr2O7", "CrO4",
+        "ClO3", "ClO4").contains(anion[0])
+
+    val kationCount = if (kation[1] != "1") kation[1] else ""
+    val anionCount = if (anion[1] != "1") anion[1] else ""
+    val brackets = if (isPolyatomic && kationCount.isNotEmpty()) Pair("(", ")") else Pair("", "")
+
+    return "${kation[0]}${brackets.first}${anion[0]}${brackets.second}${anionCount}${kationCount}"
+}
+
+fun extractRatio(product: String, kation: String): Int =
+    product.substringAfter(kation).takeIf { it[0].isDigit() }?.first()?.digitToInt() ?: 1
+
+fun extractAnionRatio(product: String, anion: String): Int =
+    product.replace(anion, "").takeIf { it.isNotEmpty() && it.last().isDigit() }?.last()?.digitToInt() ?: 1
+
+fun lcm(a: Int, b: Int): Int = a * b / gcd(a, b)
+fun gcd(a: Int, b: Int): Int = if (b == 0) a else gcd(b, a % b)
+
+fun formatWaterOrProduct(product: String): String =
+    if (product.contains("HOH")) "H2O" else product
+
+fun isProductPrecipitate(product: String): Boolean =
+    table.any { product.contains(it[0]) && it[1] == "P" }
