@@ -99,7 +99,7 @@ fun main(firstProduct: String, secondProduct: String) {
     if (finalReaction.contains("H2O")){
         println("Потом")
         exitProcess(0)
-    }
+    }//
 
     if (isProductPrecipitate(newFirstProduct) || isProductPrecipitate(newSecondProduct)) {
         println(finalReaction)
