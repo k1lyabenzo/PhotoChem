@@ -41,6 +41,5 @@ fun main() {
     }
 
     if ((foundHardSecond && foundHardFirst) && (firstProductIndex=="P" && secondProductIndex=="P")) main(firstProductModified, secondProduct)
-    else if (foundHardFirst || foundHardSecond) println("Замещение")
-    else mainCompound(firstProductModified, secondProduct)
+    else mainOther(firstProductModified, secondProduct)
 }
