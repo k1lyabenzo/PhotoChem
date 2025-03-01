@@ -1,4 +1,8 @@
 import Reactions.Reactions_Decomposition
+import Reactions.Reactions_Other.Fifth.*
+import Reactions.Reactions_Other.Fourth.*
+import Reactions.Reactions_Other.Sixth.*
+import Reactions.Reactions_Other.Third.*
 import java.util.*
 import kotlin.system.exitProcess
 
@@ -7,10 +11,8 @@ fun main() {
     val tableDecomposition = Reactions_Decomposition.reaction_decomposition
 
     val scanner = Scanner(System.`in`)
-    print("Product A: ")
+    print("Реакция: ")
     val firstProduct = scanner.nextLine().trim { it <= ' ' }
-
-    val firstProductModified = firstProduct.replace("+", "")
 
     if (!firstProduct.contains("+")) {
         for (reaction in tableDecomposition) {
@@ -20,26 +22,38 @@ fun main() {
             }
         }
         println("No decomposition reaction found for $firstProduct")
-        exitProcess(0)
+    } else {
+        val resultArray = firstProduct.split("+").map { it.trim() }.filter { it.isNotEmpty() }
+        val allReactions = when (resultArray.size) {
+            2 -> arrayOf(
+                Reactions_Other_3_1.other_3_1,
+                Reactions_Other_3_2.other_3_2,
+                Reactions_Other_3_3.other_3_3,
+                Reactions_Other_3_4.other_3_4,
+                Reactions_Other_3_5.other_3_5,
+                Reactions_Other_3_6.other_3_6
+            )
+            3 -> arrayOf(
+                Reactions_Other_4_1.other_4_1,
+                Reactions_Other_4_2.other_4_2
+            )
+            4 -> arrayOf(
+                Reactions_Other_5.other_5
+            )
+            5 -> arrayOf(
+                Reactions_Other_6.other_6
+            )
+            else -> emptyArray()
+        }
+        for (reactions in allReactions) {
+            for (reaction in reactions) {
+                if (areArraysEqualIgnoringOrder(resultArray, reaction.take(resultArray.size))) {
+                    println(reaction[resultArray.size])
+                }
+            }
+        }
     }
-
-    print("Product B: ")
-    val secondProduct = scanner.nextLine().trim { it <= ' ' }
-    var foundHardFirst = false
-    var foundHardSecond = false
-
-    var firstProductIndex = "H"
-    var secondProductIndex = "H"
-
-    for (reaction in tableExchange) {
-        if (reaction[0] == firstProductModified){
-            foundHardFirst = true
-            firstProductIndex = reaction[1]}
-        if (reaction[0] == secondProduct){
-            foundHardSecond = true
-            secondProductIndex = reaction[1]}
-    }
-
-    if ((foundHardSecond && foundHardFirst) && (firstProductIndex=="P" && secondProductIndex=="P")) main(firstProductModified, secondProduct)
-    else mainOther(firstProductModified, secondProduct)
+}
+fun areArraysEqualIgnoringOrder(array1: List<String>, array2: List<String>): Boolean {
+    return array1.toSet() == array2.toSet()
 }

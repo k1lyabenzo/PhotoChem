@@ -1,4 +1,4 @@
-import Reactions.Reactions_Other
+import Reactions.Reactions_Compound
 
 fun mainOther(firstProduct: String, secondProduct: String) {
     val result = getReactionResult(firstProduct, secondProduct)
@@ -14,7 +14,7 @@ fun mainOther(firstProduct: String, secondProduct: String) {
 
 private fun getReactionResult(product1: String, product2: String): String? {
     val allReactions = arrayOf(
-        Reactions_Other.reaction_other
+        Reactions_Compound.reaction_compound_Al
     )
     for (reactions in allReactions) for (reaction in reactions)
         if ((reaction[0] == product1 && reaction[1] == product2) || (reaction[0] == product2 && reaction[1] == product1)) return reaction.last()
