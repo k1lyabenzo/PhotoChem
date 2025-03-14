@@ -1,13 +1,33 @@
 import Reactions.Reactions_Compound
+import Reactions.Reactions_Other.Third.*
+
 fun mainCompound(firstProduct: String, secondProduct: String) {
     val result = getReactionResult(firstProduct, secondProduct)
     if (result != null) {
-        val products = if (result.contains("/")) result.split("/") else listOf(result)
-        products.forEachIndexed { index, product ->
-            println("Final reaction ${index + 1}: $product")
+        result.split("/").forEach { reaction ->
+            println(reaction)
         }
     } else {
-        println("No reaction was detected")
+        val allReactions =  arrayOf(
+            Reactions_Other_3_1.other_3_1,
+            Reactions_Other_3_2.other_3_2,
+            Reactions_Other_3_3.other_3_3,
+            Reactions_Other_3_4.other_3_4,
+            Reactions_Other_3_5.other_3_5,
+            Reactions_Other_3_6.other_3_6
+        )
+        for (reactions in allReactions) {
+            for (reaction in reactions) {
+                val resultArray = arrayListOf(
+                    firstProduct,
+                    secondProduct
+                )
+
+                if (areArraysEqualIgnoringOrder(resultArray, reaction.take(2))) {
+                    println(reaction[2])
+                }
+            }
+        }
     }
 }
 
