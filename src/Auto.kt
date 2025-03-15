@@ -30,7 +30,7 @@ fun main() {
         }
     }
 
-    if (reactions.isNotEmpty()) println("Найденные реакции:\n" + reactions.distinct().joinToString("\n"))
+    if (reactions.isNotEmpty()) println(reactions.distinct().joinToString("\n"))
 }
 
 fun areArraysEqualIgnoringOrder(array1: List<String>, array2: List<String>) =
