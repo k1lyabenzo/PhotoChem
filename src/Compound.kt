@@ -24,7 +24,7 @@ fun mainCompound(firstProduct: String, secondProduct: String) {
                 )
 
                 if (areArraysEqualIgnoringOrder(resultArray, reaction.take(2))) {
-                    println(reaction[2])
+                    println(mainBalancer(reaction[2]))
                 }
             }
         }
